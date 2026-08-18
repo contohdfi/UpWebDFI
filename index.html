@@ -24,30 +24,35 @@
     }
 
     body { font-family: 'Inter', sans-serif; color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; background-color: #ffffff; padding-bottom: 0; }
-    @media (max-width: 991px) { body { padding-bottom: 70px; } /* Jarak untuk bottom bar di HP */ }
+    
+    /* Memberi ruang kosong di bawah khusus HP agar konten tidak tertutup Bottom Bar */
+    @media (max-width: 991px) { 
+        body { padding-bottom: 75px; } 
+    }
+    
     .arabic-text { font-family: 'Amiri', serif; font-size: 1.8rem; letter-spacing: 0.5px; }
-    .section-padding { padding: 100px 0; }
+    .section-padding { padding: 90px 0; }
 
-    .text-accent { color: var(--accent-gold); font-size: 1.25rem; display: block; margin-bottom: 5px; }
+    .text-accent { color: var(--accent-gold); font-size: 1.15rem; display: block; margin-bottom: 5px; }
     .section-title { font-weight: 700; color: var(--primary-green); display: inline-block; background-color: rgba(10, 92, 54, 0.08); padding: 10px 25px; border-radius: 12px; margin-top: 0; }
     .max-width-600 { max-width: 600px; }
 
     /* --- NAVBAR --- */
-    #mainNavbar { background-color: transparent; padding: 20px 0; transition: var(--transition-smooth); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-    #mainNavbar.scrolled { background-color: rgba(10, 92, 54, 0.98); padding: 12px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-bottom: 1px solid transparent; }
-    .navbar-brand .brand-text { color: #ffffff; font-size: 1.15rem; letter-spacing: 1px; }
-    .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.8) !important; font-size: 0.85rem; letter-spacing: 0.5px; padding: 8px 16px !important; transition: var(--transition-smooth); }
+    #mainNavbar { background-color: transparent; padding: 15px 0; transition: var(--transition-smooth); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    #mainNavbar.scrolled { background-color: rgba(10, 92, 54, 0.98); padding: 10px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-bottom: 1px solid transparent; }
+    .navbar-brand .brand-text { color: #ffffff; font-size: 1.1rem; letter-spacing: 0.5px; white-space: normal; line-height: 1.2; max-width: 250px;}
+    .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.8) !important; font-size: 0.85rem; letter-spacing: 0.5px; padding: 8px 15px !important; transition: var(--transition-smooth); }
     .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--accent-gold) !important; }
-    .navbar-toggler { border-color: rgba(255, 255, 255, 0.5); }
+    .navbar-toggler { border-color: rgba(255, 255, 255, 0.5); padding: 5px 10px;}
     .navbar-toggler:focus { box-shadow: none; }
     .navbar-toggler-icon { filter: invert(1); }
-    .navbar-logo { width: 46px; height: 46px; object-fit: contain; background: white; padding: 4px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,.25), 0 0 8px rgba(255,255,255,.6); transition: .3s; }
+    .navbar-logo { width: 42px; height: 42px; object-fit: contain; background: white; padding: 4px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,.25), 0 0 8px rgba(255,255,255,.6); transition: .3s; }
 
     /* --- HERO SECTION --- */
-    .hero-section { min-height: 100vh; background-image: url('https://i.ibb.co.com/zzqMMFq/DSC5150.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding-top: 120px;}
-    .hero-logo-wrapper { width: 180px; height: 180px; margin: 0 auto 38px; transform: translateY(-20px); background: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid rgba(255,255,255,.85); box-shadow: 0 8px 25px rgba(0,0,0,.18), 0 2px 8px rgba(255,255,255,.25); transition: all .35s ease; }
-    .hero-logo { width: 135px; height: auto; object-fit: contain; transform: translateY(-10px); }
-    .hero-logo-wrapper:hover { transform: translateY(-25px); box-shadow: 0 15px 35px rgba(0,0,0,.22), 0 5px 15px rgba(255,255,255,.30); }
+    .hero-section { min-height: 100vh; background-image: url('https://i.ibb.co.com/zzqMMFq/DSC5150.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding-top: 100px;}
+    .hero-logo-wrapper { width: 160px; height: 160px; margin: 0 auto 30px; transform: translateY(-10px); background: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid rgba(255,255,255,.85); box-shadow: 0 8px 25px rgba(0,0,0,.18), 0 2px 8px rgba(255,255,255,.25); transition: all .35s ease; }
+    .hero-logo { width: 120px; height: auto; object-fit: contain; transform: translateY(-5px); }
+    .hero-logo-wrapper:hover { transform: translateY(-15px); box-shadow: 0 15px 35px rgba(0,0,0,.22), 0 5px 15px rgba(255,255,255,.30); }
     .hero-section .overlay { background: linear-gradient(135deg, rgba(10, 92, 54, 0.9) 0%, rgba(5, 45, 26, 0.95) 100%); }
 
     /* --- BUTTONS --- */
@@ -67,12 +72,11 @@
     .bg-primary { background-color: var(--primary-green) !important; }
     .text-primary { color: var(--primary-green) !important; }
 
-    /* --- PROGRAM PENDIDIKAN & ZOOM TARGET --- */
+    /* --- GALERI & PROGRAM --- */
     .program-img-wrapper { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; cursor: pointer; }
     .program-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
     .card-hover:hover .program-img-wrapper img { transform: scale(1.08); }
-
-    /* --- GALERI & OVERLAY ZOOM --- */
+    
     .gallery-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 18px; transition: .35s ease; background: #fff; }
     .gallery-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,.18); }
     .gallery-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: .45s ease; }
@@ -92,7 +96,7 @@
     .card-hover:hover .news-img { transform: scale(1.05); }
     .border-white-translucent { border-color: rgba(255, 255, 255, 0.1) !important; }
     #kontak .border-bottom p { text-align: justify; }
-    .social-link { width: 50px; height: 50px; font-size: 1.3rem; border-radius: 50%; background-color: rgba(255, 255, 255, 0.08); color: #ffffff; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition-smooth); }
+    .social-link { width: 45px; height: 45px; font-size: 1.2rem; border-radius: 50%; background-color: rgba(255, 255, 255, 0.08); color: #ffffff; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition-smooth); }
     .social-link:hover { background-color: var(--accent-gold); color: #000000; transform: translateY(-3px); }
 
     /* --- TESTIMONI --- */
@@ -119,38 +123,33 @@
     .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
+    /* Pengaturan Layar HP / Tablet */
     @media (max-width: 991.98px) {
-      #mainNavbar { background-color: var(--primary-green) !important; padding: 15px 0; }
+      #mainNavbar { background-color: var(--primary-green) !important; padding: 12px 0; }
       .hero-section { background-attachment: scroll; }
       .timeline::after { left: 20px; }
       .timeline-item .timeline-icon { left: 0px; }
-      html, body { font-size: 17px; }
-      p, .text-muted, .leading-relaxed { font-size: 1.15rem !important; }
-      small, .small { font-size: 1.0rem !important; }
-      .section-title { font-size: 2.5rem !important; }
+      .section-title { font-size: 1.75rem !important; }
+      .brand-text { font-size: 0.95rem !important; }
     }
-    @media (max-width: 767.98px) {
-      .section-padding { padding: 65px 0; }
-      .container { padding-left: 12px; padding-right: 12px; }
-      .card-mobile-spacing { padding: 1.25rem !important; }
+    
+    @media (max-width: 575.98px) {
+      .hero-section h1.display-3 { font-size: 2.2rem; }
+      .navbar-brand img { width: 35px; height: 35px; }
       .timeline-content { margin-left: 2rem !important; }
-    }
-    @media (min-width: 992px) {
-      .navbar-nav .nav-link { padding: 8px 10px !important; font-size: 0.78rem; }
-      .navbar-brand .brand-text { font-size: 0.95rem; max-width: 250px; white-space: normal; line-height: 1.2; }
-      .hero-logo-wrapper { transform: translateY(0px); margin-bottom: 25px; }
-      .hero-logo-wrapper:hover { transform: translateY(-10px); }
+      .section-padding { padding: 60px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR DENGAN OFFCANVAS UNTUK HP -->
+  <!-- NAVBAR DENGAN OFFCANVAS (SIDEBAR KANAN HP) -->
   <nav class="navbar navbar-expand-lg fixed-top transition-all" id="mainNavbar">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="https://i.ibb.co.com/gFWV27xB/DFI-Resolusi.png" alt="Logo" class="navbar-logo me-3">
-        <span class="brand-text fw-bold text-white d-none d-sm-block">PP Darul Fawaid Ilmiyah</span>
+        <img src="https://i.ibb.co.com/gFWV27xB/DFI-Resolusi.png" alt="Logo" class="navbar-logo me-2">
+        <!-- Tulisan Header kini tetap dimunculkan di HP -->
+        <span class="brand-text fw-bold text-white">PP Darul Fawaid Ilmiyah</span>
       </a>
       
       <!-- Tombol Navbar HP -->
@@ -219,7 +218,7 @@
             Pondok Pesantren Darul Fawaid Ilmiyah merupakan lembaga pendidikan Islam yang berorientasi pada masa depan dengan tetap berpegang teguh pada nilai-nilai keilmuan klasik. Melalui pembelajaran Kitab Kuning yang dipadukan dengan sistem pendidikan modern, santri dibekali wawasan keislaman yang kuat sekaligus kompetensi akademik yang relevan dengan perkembangan zaman.
           </p>
           <p class="text-muted leading-relaxed mb-4">
-            Proses pembelajaran didampingi oleh para pembimbing yang kompeten, berpengalaman, dan profesional sehingga tercipta lingkungan belajar yang kondusif.
+            Proses pembelajaran didampingi oleh para pembimbing yang kompeten, berpengalaman, dan profesional sehingga tercipta lingkungan belajar yang kondusif. Dengan bimbingan yang intensif, setiap santri memperoleh kesempatan untuk mengembangkan potensi, minat, dan bakatnya secara optimal.
           </p>
           <div class="row g-3">
             <div class="col-sm-6 d-flex align-items-center">
@@ -232,7 +231,7 @@
               <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Pembinaan Akhlaqul Karimah</span>
             </div>
             <div class="col-sm-6 d-flex align-items-center">
-              <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Sikap Disiplin</span>
+              <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Pembiasaan Sikap Disiplin</span>
             </div>
           </div>
         </div>
@@ -247,12 +246,15 @@
       <h2 class="section-title mb-5">Sejarah Berdirinya Pesantren</h2>
       <div class="row justify-content-center">
         <div class="col-lg-8 text-start">
-          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-top border-5 border-primary card-mobile-spacing">
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-top border-5 border-primary">
             <p class="text-muted leading-relaxed">
               Pondok Pesantren Darul Fawaid Ilmiyah didirikan pada tahun 1444 Hijriyah oleh KH. Zaky Ayamany dan memperoleh pengesahan resmi dari negara pada 25 November 2022. Berawal dari sebuah masjid dan kamar sederhana (madura: cangkrok) yang berdiri di atas tanah wakaf, pesantren ini memulai langkahnya dengan tiga orang pengurus dan lima santri mukim sebagai generasi pertama.
             </p>
             <p class="text-muted leading-relaxed mb-4">
-              Meskipun usianya masih tergolong muda, Pondok Pesantren Darul Fawaid Ilmiyah terus menunjukkan perkembangan yang positif. Dengan semangat membangun pendidikan Islam yang berkualitas, pesantren senantiasa berupaya meningkatkan mutu pembelajaran.
+              Meskipun usianya masih tergolong muda, Pondok Pesantren Darul Fawaid Ilmiyah terus menunjukkan perkembangan yang positif. Dengan semangat membangun pendidikan Islam yang berkualitas, pesantren senantiasa berupaya meningkatkan mutu pembelajaran, sarana pendukung, serta pembinaan karakter santri agar mampu menghadapi tantangan zaman.
+            </p>
+            <p class="text-muted leading-relaxed mb-0">
+              Berpijak pada nilai-nilai keikhlasan, kesederhanaan, dan semangat menuntut ilmu, pesantren berkomitmen melahirkan generasi muslim yang berakhlak mulia, berwawasan luas, dan siap memberikan manfaat bagi agama, bangsa, dan masyarakat. Setiap langkah pengembangan dilakukan tanpa meninggalkan jati diri dan tradisi luhur kepesantrenan.
             </p>
           </div>
         </div>
@@ -267,7 +269,7 @@
       <h2 class="section-title mb-5">Visi dan Misi</h2>
       <div class="row g-4 justify-content-center">
         <div class="col-lg-5">
-          <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-primary text-white card-mobile-spacing">
+          <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-primary text-white">
             <div class="card-body d-flex flex-column justify-content-center">
               <div class="icon-circle bg-white-translucent text-gold mb-4 mx-auto">
                 <i class="bi bi-book-half fs-3"></i>
@@ -280,7 +282,7 @@
           </div>
         </div>
         <div class="col-lg-7">
-          <div class="card border-0 shadow-sm p-4 rounded-4 h-100 text-start bg-white card-mobile-spacing">
+          <div class="card border-0 shadow-sm p-4 rounded-4 h-100 text-start bg-white">
             <div class="card-body">
               <div class="d-flex align-items-center mb-4">
                 <div class="icon-circle bg-primary-light text-primary me-3">
@@ -303,6 +305,13 @@
                     <p class="text-muted mb-0">Membiasakan penggunaan bahasa Arab dan Inggris secara aktif sebagai pengantar harian komunikasi pesantren.</p>
                   </div>
                 </li>
+                <li class="d-flex align-items-start">
+                  <span class="badge bg-gold text-dark me-3 mt-1 px-2.5 py-2.5 rounded-circle"><i class="bi bi-people-fill"></i></span>
+                  <div>
+                    <h5 class="fw-bold text-dark mb-1">Karakter Unggul</h5>
+                    <p class="text-muted mb-0">Menanamkan nilai akhlakul karimah, kepemimpinan, kemandirian, dan jiwa kewirausahaan sosial.</p>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -322,7 +331,7 @@
           <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-white text-center">
             <div class="mb-4 mx-auto"><img src="https://i.ibb.co.com/BHBvLX08/Logo-MADIN-Takmiliyah.png" alt="Logo MDT" style="width: 80px; height: 80px; object-fit: contain;"></div>
             <h4 class="fw-bold text-dark mb-3">Madrasah Diniyah Takmiliyah (MDT)</h4>
-            <p class="text-muted mb-0 small leading-relaxed">Fokus pada pendalaman keilmuan agama Islam (Tafaqquh Fiddin) dan bimbingan baca tulis Al-Qur'an.</p>
+            <p class="text-muted mb-0 small leading-relaxed">Fokus pada pendalaman keilmuan agama Islam (Tafaqquh Fiddin), bimbingan baca tulis Al-Qur'an, dan kajian kitab kuning.</p>
           </div>
         </div>
         <!-- SMP -->
@@ -330,7 +339,7 @@
           <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-white text-center">
             <div class="mb-4 mx-auto"><img src="https://i.ibb.co.com/TDzHjMjZ/Logo-SMP.png" alt="Logo SMP" style="width: 80px; height: 80px; object-fit: contain;"></div>
             <h4 class="fw-bold text-dark mb-3">Sekolah Menengah Pertama (SMP)</h4>
-            <p class="text-muted mb-0 small leading-relaxed">Pendidikan dasar menengah yang mengintegrasikan kurikulum nasional dengan nilai kepesantrenan.</p>
+            <p class="text-muted mb-0 small leading-relaxed">Menyelenggarakan pendidikan dasar menengah yang mengintegrasikan kurikulum nasional dengan nilai-nilai kepesantrenan.</p>
           </div>
         </div>
         <!-- SLTA -->
@@ -338,7 +347,7 @@
           <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-white text-center">
             <div class="mb-4 mx-auto"><img src="https://i.ibb.co.com/F9HrznH/Excel.png" alt="Logo SLTA" style="width: 80px; height: 80px; object-fit: contain;"></div>
             <h4 class="fw-bold text-dark mb-3">Sekolah Lanjutan Tingkat Atas (SLTA)</h4>
-            <p class="text-muted mb-0 small leading-relaxed">Mempersiapkan kader lulusan yang kompeten untuk bersaing di perguruan tinggi maupun dunia kerja.</p>
+            <p class="text-muted mb-0 small leading-relaxed">Mempersiapkan kader lulusan yang kompeten, berwawasan luas, dan memiliki kemampuan literasi digital agar siap bersaing.</p>
           </div>
         </div>
       </div>
@@ -354,19 +363,19 @@
         <div class="col-md-4 col-sm-6">
           <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
             <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/bwVCKdz/Yanbu-a.jpg" class="card-img-top zoom-target" alt="Baca Tulis Qur'an"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
-            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Metode Yanbu'a</h5><p class="text-muted small">Pembelajaran membaca dan menulis Al-Qur'an secara tartil.</p></div>
+            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Metode Yanbu'a</h5><p class="text-muted small">Program pembelajaran membaca dan menulis Al-Qur'an secara tartil yang terstruktur, cepat, dan bersanad.</p></div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
           <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
             <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/dsN1V1DN/Kitab.jpg" class="card-img-top zoom-target" alt="Kitab Kuning"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
-            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Kitab Kuning</h5><p class="text-muted small">Kajian kitab salaf meliputi ilmu fikih, hadits, aqidah, dan akhlak.</p></div>
+            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Kajian Kitab Kuning</h5><p class="text-muted small">Kajian kitab salaf meliputi ilmu fikih, hadits, aqidah, akhlak, dan tarikh untuk mencetak generasi tafaqquh fiddin.</p></div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
           <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
             <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/Ng2X2bTw/Bahasa.jpg" class="card-img-top zoom-target" alt="Bahasa"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
-            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Bahasa Asing</h5><p class="text-muted small">Pelatihan intensif bahasa Arab dan Inggris.</p></div>
+            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Kursus Bahasa Asing</h5><p class="text-muted small">Pelatihan intensif bahasa Arab dan Inggris untuk membekali santri dengan kemampuan komunikasi global.</p></div>
           </div>
         </div>
       </div>
@@ -377,12 +386,16 @@
   <section id="galeri" class="section-padding bg-light scroll-reveal">
       <div class="container text-center">
           <span class="text-accent fw-bold text-uppercase tracking-wider">Aktivitas Visual</span>
-          <h2 class="section-title mb-5">Galeri Foto</h2>
+          <h2 class="section-title mb-5">Galeri Foto Kegiatan</h2>
           <div class="row g-3 g-md-4 justify-content-center">
               <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/Q3ZccjYY/KBM-Madin.jpg" class="gallery-img zoom-target" alt="KBM Madin"><div class="gallery-title">KBM Madin</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
               <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/gbFGdhwr/KBM-SMP.jpg" class="gallery-img zoom-target" alt="KBM SMP"><div class="gallery-title">KBM SMP</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
               <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/60Y0gP5c/Upacara.jpg" class="gallery-img zoom-target" alt="Upacara"><div class="gallery-title">Upacara Bendera</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
               <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/cKqTkX5R/Pengajian-Kitab.jpg" class="gallery-img zoom-target" alt="Pengajian"><div class="gallery-title">Pengajian Kitab</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/NgY1kfW2/Diba.jpg" class="gallery-img zoom-target" alt="Diba'iyyah"><div class="gallery-title">Pembacaan Diba'iyyah</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/4Z6qRT4L/FA.jpg" class="gallery-img zoom-target" alt="Furudul Ainiyah"><div class="gallery-title">Pendalaman Furudul 'Ainiyah</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/whkc251Y/Ekstra-Pagar-Nusa.jpg" class="gallery-img zoom-target" alt="Pagar Nusa"><div class="gallery-title">Ekstrakurikuler Pagar Nusa</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/xS6rs6Tn/Futsal.jpg" class="gallery-img zoom-target" alt="Futsal"><div class="gallery-title">Ekstrakurikuler Futsal</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
           </div>
       </div>
   </section>
@@ -395,10 +408,26 @@
       <div class="timeline">
         <div class="timeline-item position-relative mb-5 text-start">
           <div class="timeline-icon bg-primary text-white position-absolute rounded-circle shadow-sm"><i class="bi bi-award-fill"></i></div>
-          <div class="timeline-content bg-white p-4 rounded-4 shadow-sm border-start border-4 border-primary ms-sm-5 ms-4 card-mobile-spacing">
+          <div class="timeline-content bg-white p-4 rounded-4 shadow-sm border-start border-4 border-primary ms-sm-5 ms-4">
             <span class="text-gold fw-bold mb-1 d-block">Ananda Ana Maulidiah</span>
             <h5 class="fw-bold text-dark">Juara 1 Lomba Tartilul Qur'an</h5>
-            <p class="text-muted small mb-0">Festival Satu Muharram 1448 H, Masjid Baitur Rahim Randujalak.</p>
+            <p class="text-muted small mb-0">Pada Festival Satu Muharram (Tahun Baru Islam 1448 H) yang diselenggarakan oleh Masjid Baitur Rahim Randujalak Besuk pada 13 Juni 2026.</p>
+          </div>
+        </div>
+        <div class="timeline-item position-relative mb-5 text-start">
+          <div class="timeline-icon bg-primary text-white position-absolute rounded-circle shadow-sm"><i class="bi bi-award-fill"></i></div>
+          <div class="timeline-content bg-white p-4 rounded-4 shadow-sm border-start border-4 border-primary ms-sm-5 ms-4">
+            <span class="text-gold fw-bold mb-1 d-block">Ananda Moh. Hifdi Akmalul Iman</span>
+            <h5 class="fw-bold text-dark">Juara 3 Lomba Tartilul Qur'an</h5>
+            <p class="text-muted small mb-0">Pada Festival Satu Muharram (Tahun Baru Islam 1448 H) yang diselenggarakan oleh Masjid Baitur Rahim Randujalak Besuk pada 13 Juni 2026.</p>
+          </div>
+        </div>
+        <div class="timeline-item position-relative mb-5 text-start">
+          <div class="timeline-icon bg-primary text-white position-absolute rounded-circle shadow-sm"><i class="bi bi-award-fill"></i></div>
+          <div class="timeline-content bg-white p-4 rounded-4 shadow-sm border-start border-4 border-primary ms-sm-5 ms-4">
+            <span class="text-gold fw-bold mb-1 d-block">Ananda Yuliana</span>
+            <h5 class="fw-bold text-dark">Juara Harapan Satu Lomba Tartilul Qur'an</h5>
+            <p class="text-muted small mb-0">Pada Festival Satu Muharram (Tahun Baru Islam 1448 H) yang diselenggarakan oleh Masjid Baitur Rahim Randujalak Besuk pada 13 Juni 2026.</p>
           </div>
         </div>
       </div>
@@ -410,29 +439,34 @@
     <div class="container text-center">
        <span class="text-accent fw-bold text-uppercase tracking-wider">Informasi & Update</span>
        <h2 class="section-title mb-2">Berita Terkini</h2>
-       <p class="text-muted small mb-5">Klik gambar atau judul berita untuk membaca berita selengkapnya</p>
+       <p class="text-muted small mb-5">(Klik gambar atau judul berita untuk membaca selengkapnya)</p>
        
        <div class="row g-4 text-start">
-         <!-- Gunakan format berita.html?id=1 karena ditaruh di GitHub Pages -->
+         <!-- Headline Utama -->
          <div class="col-lg-6">
             <a href="berita.html?id=1" class="text-decoration-none">
                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
                   <img src="https://i.ibb.co.com/KcH2vNGF/BESTIE-Fotbar.jpg" class="news-img">
                   <div class="card-body p-4">
                      <span class="badge bg-primary mb-2">Event Tahunan</span>
-                     <h4 class="fw-bold text-dark mt-2">Event Perdana BESTie 2026 Tingkat SD/MI Berlangsung Sukses</h4>
+                     <h4 class="fw-bold text-dark mt-2">Event Perdana BESTie 2026 Tingkat SD/MI Se-Kecamatan Besuk Berlangsung Sukses, MI Raudlatussalam Raih Juara Umum</h4>
                      <p class="text-muted small mt-3 mb-0">Baca selengkapnya <i class="bi bi-arrow-right"></i></p>
                   </div>
                </div>
             </a>
          </div>
+         
+         <!-- Berita Grid Kanan -->
          <div class="col-lg-6">
             <div class="row g-3">
               <div class="col-sm-6">
                   <a href="berita.html?id=2" class="text-decoration-none">
                      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
                         <img src="https://i.ibb.co.com/vCcGgpgd/B-Cover-2.jpg" class="news-img">
-                        <div class="card-body p-3"><h6 class="fw-bold text-dark mb-2">SMP DFI Gelar Workshop Aplikasi Rapor</h6></div>
+                        <div class="card-body p-3">
+                           <h6 class="fw-bold text-dark mb-2">SMP Darul Fawaid Ilmiyah Gelar Workshop Aplikasi Input Data Rapor</h6>
+                           <p class="text-muted small mb-0"><i class="bi bi-calendar3"></i> 14 Mei 2026</p>
+                        </div>
                      </div>
                   </a>
                </div>
@@ -440,7 +474,32 @@
                   <a href="berita.html?id=3" class="text-decoration-none">
                      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
                         <img src="https://i.ibb.co.com/9kTcQCTH/Y-Wisudawan.webp" class="news-img">
-                        <div class="card-body p-3"><h6 class="fw-bold text-dark mb-2">Yudisium Kelulusan Angkatan Pertama SMP DFI</h6></div>
+                        <div class="card-body p-3">
+                           <h6 class="fw-bold text-dark mb-2">Yudisium Kelulusan Angkatan Pertama SMP Darul Fawaid Ilmiyah Berlangsung Dengan Khidmat</h6>
+                           <p class="text-muted small mb-0"><i class="bi bi-calendar3"></i> 24 Mei 2026</p>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-sm-6">
+                  <a href="berita.html?id=4" class="text-decoration-none">
+                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
+                        <img src="https://i.ibb.co.com/m5HVpf0p/O-Cover.jpg" class="news-img">
+                        <div class="card-body p-3">
+                           <h6 class="fw-bold text-dark mb-2">ORSABA 2026 Bekali Santri Baru dengan Nilai-Nilai Kepesantrenan dan Kebersamaan</h6>
+                           <p class="text-muted small mb-0"><i class="bi bi-calendar3"></i> 17 Juli 2026</p>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-sm-6">
+                  <a href="berita.html?id=5" class="text-decoration-none">
+                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
+                        <img src="https://i.ibb.co.com/S4WW7v33/R-Cover.jpg" class="news-img">
+                        <div class="card-body p-3">
+                           <h6 class="fw-bold text-dark mb-2">PP dan SMP Darul Fawaid Ilmiyah Gelar Rapat Kerja Awal Tahun Pelajaran 2026/2027</h6>
+                           <p class="text-muted small mb-0"><i class="bi bi-calendar3"></i> 18 Juli 2026</p>
+                        </div>
                      </div>
                   </a>
                </div>
@@ -456,22 +515,31 @@
       <div class="text-center mb-5">
         <span class="text-accent fw-bold text-uppercase tracking-wider">Suara Mereka</span>
         <h2 class="section-title mb-2">Menurutmu, Bagaimana PP DFI itu?</h2>
-        <p class="text-muted small">Bagikan pengalaman dan kesan pesan Anda.</p>
+        <p class="text-muted small">Bagikan pengalaman dan kesan pesan Anda bersama Pondok Pesantren Darul Fawaid Ilmiyah.</p>
       </div>
       <div class="row justify-content-center g-4">
         <div class="col-lg-5">
-          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-top border-5 border-primary h-100 card-mobile-spacing">
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-top border-5 border-primary h-100">
             <h4 class="fw-bold text-dark mb-4"><i class="bi bi-pencil-square text-primary me-2"></i>Tulis Kesanmu</h4>
             <form id="formTestimoni">
-              <div class="mb-3 text-start"><label class="form-label small fw-bold text-muted">Nama Lengkap</label><input type="text" class="form-control bg-light" id="namaTestimoni" placeholder="Masukkan nama..." required></div>
-              <div class="mb-4 text-start"><label class="form-label small fw-bold text-muted">Komentar & Kesan</label><textarea class="form-control bg-light" id="isiTestimoni" rows="4" placeholder="Tuliskan pengalaman..." required></textarea></div>
+              <div class="mb-3 text-start">
+                <label class="form-label small fw-bold text-muted">Nama Lengkap</label>
+                <input type="text" class="form-control bg-light" id="namaTestimoni" placeholder="Masukkan nama Anda..." required>
+              </div>
+              <div class="mb-4 text-start">
+                <label class="form-label small fw-bold text-muted">Komentar & Kesan</label>
+                <textarea class="form-control bg-light" id="isiTestimoni" rows="4" placeholder="Tuliskan pengalaman luar biasamu di sini..." required></textarea>
+              </div>
               <button type="submit" class="btn btn-primary w-100 fw-bold py-3 rounded-pill" id="btnSubmitTestimoni">Kirim Komentar <i class="bi bi-send ms-2"></i></button>
             </form>
           </div>
         </div>
         <div class="col-lg-7">
           <div class="bg-light p-4 rounded-4 shadow-sm h-100" style="max-height: 520px; overflow-y: auto;" id="wadahTestimoni">
-            <div class="text-center py-5" id="loadingTestimoni"><div class="spinner-border text-primary" role="status"></div><p class="mt-3 small text-muted">Memuat testimoni...</p></div>
+            <div class="text-center py-5" id="loadingTestimoni">
+              <div class="spinner-border text-primary" role="status"></div>
+              <p class="mt-3 small text-muted">Memuat testimoni...</p>
+            </div>
           </div>
         </div>
       </div>
@@ -485,11 +553,26 @@
       <h2 class="section-title mb-5">Lokasi Pesantren</h2>
       <div class="row g-4 align-items-center">
         <div class="col-lg-6 text-start">
-          <div class="bg-white p-4 p-md-4 rounded-4 shadow-sm h-100 card-mobile-spacing">
+          <div class="bg-white p-4 p-md-4 rounded-4 shadow-sm h-100">
             <h4 class="fw-bold text-primary mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Yayasan Darul Ghiran Alyamany</h4>
             <p class="text-muted leading-relaxed mb-4">Dusun Giran RT 001 RW 002 Desan Randujalak Kecamatan Besuk Kabupaten Probolinggo Jawa Timur || Kode Pos: 67283</p>
             <hr class="text-muted opacity-25 mb-4">
-            <div class="d-flex align-items-start mb-3"><i class="bi bi-clock-fill text-accent me-3 mt-1"></i><div><h6 class="fw-bold text-dark mb-1">Jam Operasional Kantor</h6><p class="text-muted small mb-0">Senin - Kamis: 08.00 - 13.00 WIB</p></div></div>
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-clock-fill text-accent me-3 mt-1"></i>
+              <div>
+                <h6 class="fw-bold text-dark mb-1">Jam Operasional Kantor</h6>
+                <p class="text-muted small mb-0">Senin - Kamis: 08.00 WIB - 13.00 WIB</p>
+                <p class="text-muted small mb-0">Jum'at: 09.00 WIB - 15.00 WIB</p>
+                <p class="text-muted small mb-0">Sabtu & Ahad: 08.00 WIB - 12.00 WIB</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <i class="bi bi-compass-fill text-accent me-3 mt-1"></i>
+              <div>
+                <h6 class="fw-bold text-dark mb-1">Rute Transportasi</h6>
+                <p class="text-muted small mb-0">Lokasi Pesantren sangat mudah dijangkau menggunakan berbagai moda transportasi. Dari Bakso Pandawa Besuk, cukup menempuh perjalanan sekitar 350 meter ke arah timur.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-6">
@@ -501,42 +584,69 @@
     </div>
   </section>
 
-  <!-- 12. FOOTER & BOTTOM BAR HP -->
+  <!-- 12. FOOTER LENGKAP -->
   <footer id="kontak" class="footer bg-primary text-white pt-5 pb-3">
     <div class="container">
       <div class="row g-4 g-md-5 pb-5 border-bottom border-white-translucent">
         <div class="col-lg-4 col-md-6">
           <h4 class="fw-bold mb-3 text-white"><i class="bi bi-moon-stars-fill text-gold me-2"></i> Let's Join Us!</h4>
-          <p class="text-light-green small leading-relaxed mb-4">Ikuti perjalanan dan berbagai aktivitas kami! Dapatkan informasi terbaru seputar kegiatan pesantren.</p>
+          <p class="text-light-green small leading-relaxed mb-4">
+            Yuk, ikuti perjalanan dan berbagai aktivitas kami! Dapatkan informasi terbaru seputar kegiatan pesantren, prestasi santri, serta berbagai konten inspiratif dengan mengikuti media sosial resmi kami.
+          </p>
           <div class="social-icons d-flex gap-3">
-            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/ponpes.darul.fawaid.ilmiyah" class="social-link" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/pondok_giran" class="social-link" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@pesantrendarulfawaidilmiyah" class="social-link" target="_blank"><i class="bi bi-youtube"></i></a>
+            <!-- Tombol TikTok Dikembalikan -->
+            <a href="https://www.tiktok.com/@darul_fawaid_ilmiyah" class="social-link" target="_blank"><i class="bi bi-tiktok"></i></a>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <h4 class="fw-bold mb-3 text-white">Hubungi Kami</h4>
           <ul class="list-unstyled text-light-green small">
-            <li class="mb-3"><i class="bi bi-telephone-fill me-3 text-gold"></i> 0822 9050 5240 (Humas)</li>
-            <li class="mb-3"><i class="bi bi-envelope-open-fill me-3 text-gold"></i> email@dfi.com</li>
+            <li class="mb-3 d-flex align-items-center"><i class="bi bi-telephone-fill me-3 text-gold"></i> 0822 9050 5240 (Humas)</li>
+            <li class="mb-3 d-flex align-items-center"><i class="bi bi-envelope-open-fill me-3 text-gold"></i> ppdarulfawaidilmiyah@gmail.com</li>
+            <li class="d-flex align-items-center"><i class="bi bi-geo-alt-fill me-3 text-gold"></i> Randujalak, Besuk, Probolinggo</li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-12">
-          <h4 class="fw-bold mb-3 text-white">Pendaftaran</h4>
+          <h4 class="fw-bold mb-3 text-white">Pendaftaran & Layanan</h4>
+          <p class="text-light-green small mb-4">
+            Kami siap memberikan layanan informasi dan konsultasi bagi calon wali santri melalui media komunikasi yang mudah diakses, responsif, dan ramah.
+          </p>
           <div class="d-grid gap-3">
-            <a href="#" target="_blank" class="btn btn-gold py-3 rounded-3 fw-bold"><i class="bi bi-file-text-fill me-2"></i> DAFTAR SEKARANG</a>
+            <a href="https://forms.gle/SK7MLpni2ge26UC99" target="_blank" class="btn btn-gold btn-lg py-3 rounded-3 shadow-sm d-flex justify-content-center align-items-center fw-bold transition-all hover-bounce">
+              <i class="bi bi-file-earmark-text-fill me-2 fs-5"></i> DAFTAR SEKARANG
+            </a>
+            <!-- Tombol Hubungi Via WA Dikembalikan -->
+            <a href="https://wa.me/6282290505240" target="_blank" class="btn btn-whatsapp btn-lg py-3 rounded-3 shadow-sm d-flex justify-content-center align-items-center fw-bold transition-all hover-bounce">
+              <i class="bi bi-whatsapp me-2 fs-5"></i> HUBUNGI VIA WHATSAPP
+            </a>
           </div>
         </div>
       </div>
-      <div class="row pt-4 text-center"><div class="col-12"><p class="text-light-green mb-0 small">&copy; 2026 Pondok Pesantren Darul Fawaid Ilmiyah.</p></div></div>
+      <div class="row pt-4 text-center">
+        <div class="col-12">
+          <p class="text-light-green mb-0 small">&copy; 2026 || Website Pondok Pesantren Darul Fawaid Ilmiyah.</p>
+          <p class="text-light-green mb-0 small">Crafted with dedication by <strong>Bintang Project</strong>.</p>
+        </div>
+      </div>
     </div>
   </footer>
 
   <!-- BOTTOM BAR (TOMBOL DAFTAR & NARAHUBUNG UNTUK HP) -->
-  <div class="mobile-bottom-bar d-block d-lg-none">
-    <div class="row g-2">
-      <div class="col-6"><a href="LINK_PENDAFTARAN_DISINI" class="btn btn-primary w-100 rounded-pill fw-bold shadow-sm py-2"><i class="bi bi-person-plus-fill me-1"></i> Daftar</a></div>
-      <div class="col-6"><a href="https://wa.me/6282290505240" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm py-2"><i class="bi bi-whatsapp me-1"></i> Hubungi</a></div>
+  <div class="mobile-bottom-bar d-flex d-lg-none">
+    <div class="row w-100 m-0 g-2">
+      <div class="col-6">
+        <a href="https://forms.gle/SK7MLpni2ge26UC99" target="_blank" class="btn btn-primary w-100 rounded-pill fw-bold shadow-sm py-2">
+          <i class="bi bi-person-plus-fill me-1"></i> Daftar
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="https://wa.me/6282290505240" target="_blank" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm py-2">
+          <i class="bi bi-whatsapp me-1"></i> Hubungi
+        </a>
+      </div>
     </div>
   </div>
 
@@ -599,7 +709,7 @@
       // --- LOGIKA TESTIMONI API ---
       // ==========================================
       // GANTI URL DI BAWAH DENGAN URL DEPLOY ANDA:
-      const GAS_URL = "https://script.google.com/macros/s/AKfycby7eQbGt0K-4y8NHvo2XgsF8Yn0mIYwi8gcgrBTPCrn-Xzdf072i2R--sAp3DiEqRbO/exec"; 
+      const GAS_URL = "URL_WEB_APP_ANDA_DISINI"; 
       // ==========================================
       
       const wadah = document.getElementById('wadahTestimoni');
