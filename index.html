@@ -775,7 +775,7 @@
           wadahTesti.innerHTML = '';
           if(result.result === 'success' && result.data.length > 0) {
             result.data.forEach(i => {
-              wadahTesti.innerHTML += `<div class="testimoni-card"><div class="testimoni-nama"><i class="bi bi-person-circle text-primary me-2"></i>${i.nama}</div><div class="testimoni-waktu"><i class="bi bi-clock-history me-1"></i>${i.waktu}</div><p class="testimoni-isi">"${i.komentar}"</p></div>`;
+              wadahTesti.innerHTML += `<div class="testimoni-card"><div class="testimoni-nama fw-bold text-dark mb-1"><i class="bi bi-person-circle text-primary me-2"></i>${i.nama}</div><div class="testimoni-waktu text-muted mb-3" style="font-size: 0.8rem;"><i class="bi bi-clock-history me-1"></i>${i.waktu}</div><p class="testimoni-isi mb-0">"${i.komentar}"</p></div>`;
             });
           } else { wadahTesti.innerHTML = '<p class="text-center text-muted my-5">Belum ada komentar.</p>'; }
         } catch(e) { wadahTesti.innerHTML = '<p class="text-center text-danger my-5">Gagal memuat data testimoni.</p>'; }
