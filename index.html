@@ -34,7 +34,6 @@
     #mainNavbar { background-color: transparent; padding: 15px 0; transition: var(--transition-smooth); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
     #mainNavbar.scrolled { background-color: rgba(10, 92, 54, 0.98); padding: 10px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-bottom: 1px solid transparent; }
     
-    /* Perbaikan lebar menu agar tidak numpuk */
     @media (min-width: 992px) {
       .navbar-brand .brand-text { max-width: 300px; font-size: 1.05rem; }
       .navbar-nav .nav-link { padding: 8px 10px !important; font-size: 0.75rem; letter-spacing: 0.5px; }
@@ -55,6 +54,7 @@
     /* --- UTILS --- */
     .btn-gold { background-color: var(--accent-gold); color: #000000; border: none; font-weight: 700; transition: var(--transition-smooth); }
     .btn-whatsapp { background-color: #25D366; color: #ffffff; border: none; transition: var(--transition-smooth); }
+    .card-hover { transition: var(--transition-smooth); }
     .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(10, 92, 54, 0.08) !important; }
     .icon-circle { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .bg-white-translucent { background-color: rgba(255, 255, 255, 0.15); }
@@ -64,14 +64,27 @@
     
     .news-img { aspect-ratio: 16/9; object-fit: cover; width: 100%; transition: .4s; }
     .card-hover:hover .news-img { transform: scale(1.05); }
+    
+    /* --- PROGRAM & GALERI FIX --- */
+    .program-img-wrapper { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; position: relative; }
+    .program-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: .4s ease; }
+    .card-hover:hover .program-img-wrapper img { transform: scale(1.08); }
+    
+    /* Mengunci ukuran box galeri agar tidak melebar/aneh */
+    .gallery-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 18px; transition: .35s ease; background: #fff; aspect-ratio: 4 / 3; display: block; }
+    .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: .45s ease; }
+    .gallery-card:hover .gallery-img { transform: scale(1.08); }
 
     /* Testimoni */
     .testimoni-card { background-color: #ffffff; border-left: 5px solid var(--primary-green); padding: 20px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: left; transition: .3s; }
     #wadahTestimoni::-webkit-scrollbar { width: 8px; }
     #wadahTestimoni::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
     
+    /* --- MOBILE STYLES --- */
     .mobile-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; z-index: 1030; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); padding: 10px 15px; border-top: 1px solid #eee; }
     .offcanvas-header { background-color: var(--primary-green); color: white; }
+    /* Fix teks menu navigasi HP yang hilang (putih) */
+    .offcanvas-body .nav-link { color: var(--text-dark) !important; padding: 12px 0 !important; border-bottom: 1px solid #eee; font-size: 1rem !important; }
 
     @media (max-width: 991.98px) {
       #mainNavbar { background-color: var(--primary-green) !important; }
@@ -84,7 +97,7 @@
 
   <!-- NAVBAR DENGAN CONTAINER FLUID AGAR LEBAR -->
   <nav class="navbar navbar-expand-lg fixed-top transition-all" id="mainNavbar">
-    <div class="container-fluid px-lg-5"> <!-- Ubah container jadi container-fluid -->
+    <div class="container-fluid px-lg-5">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="https://i.ibb.co.com/gFWV27xB/DFI-Resolusi.png" alt="Logo" class="navbar-logo me-2">
         <span class="brand-text fw-bold text-white">PP Darul Fawaid Ilmiyah</span>
@@ -296,22 +309,32 @@
       <span class="text-accent fw-bold text-uppercase tracking-wider">Kurikulum & Program</span>
       <h2 class="section-title mb-5">Program Unggulan</h2>
       <div class="row g-3 g-md-4 justify-content-center">
+        <!-- Flex-column dan flex-grow-1 ditambahkan di bawah agar sejajar rapi -->
         <div class="col-md-4 col-sm-6">
-          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
-            <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/bwVCKdz/Yanbu-a.jpg" class="card-img-top zoom-target" alt="Baca Tulis Qur'an"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
-            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Metode Yanbu'a</h5><p class="text-muted small">Program pembelajaran membaca dan menulis Al-Qur'an secara tartil yang terstruktur, cepat, dan bersanad.</p></div>
+          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger d-flex flex-column">
+            <div class="program-img-wrapper"><img src="https://i.ibb.co.com/bwVCKdz/Yanbu-a.jpg" class="card-img-top zoom-target" alt="Baca Tulis Qur'an"></div>
+            <div class="card-body p-4 d-flex flex-column">
+               <h5 class="fw-bold text-dark mb-3">Metode Yanbu'a</h5>
+               <p class="text-muted small flex-grow-1">Program pembelajaran membaca dan menulis Al-Qur'an secara tartil yang terstruktur, cepat, dan bersanad.</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
-          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
-            <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/dsN1V1DN/Kitab.jpg" class="card-img-top zoom-target" alt="Kitab Kuning"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
-            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Kajian Kitab Kuning</h5><p class="text-muted small">Kajian kitab salaf meliputi ilmu fikih, hadits, aqidah, akhlak, dan tarikh untuk mencetak generasi tafaqquh fiddin.</p></div>
+          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger d-flex flex-column">
+            <div class="program-img-wrapper"><img src="https://i.ibb.co.com/dsN1V1DN/Kitab.jpg" class="card-img-top zoom-target" alt="Kitab Kuning"></div>
+            <div class="card-body p-4 d-flex flex-column">
+               <h5 class="fw-bold text-dark mb-3">Kajian Kitab Kuning</h5>
+               <p class="text-muted small flex-grow-1">Kajian kitab salaf meliputi ilmu fikih, hadits, aqidah, akhlak, dan tarikh untuk mencetak generasi tafaqquh fiddin.</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
-          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
-            <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/Ng2X2bTw/Bahasa.jpg" class="card-img-top zoom-target" alt="Bahasa"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
-            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Kursus Bahasa Asing</h5><p class="text-muted small">Pelatihan intensif bahasa Arab dan Inggris untuk membekali santri dengan kemampuan komunikasi global.</p></div>
+          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger d-flex flex-column">
+            <div class="program-img-wrapper"><img src="https://i.ibb.co.com/Ng2X2bTw/Bahasa.jpg" class="card-img-top zoom-target" alt="Bahasa"></div>
+            <div class="card-body p-4 d-flex flex-column">
+               <h5 class="fw-bold text-dark mb-3">Kursus Bahasa Asing</h5>
+               <p class="text-muted small flex-grow-1">Pelatihan intensif bahasa Arab dan Inggris untuk membekali santri dengan kemampuan komunikasi global.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -324,14 +347,14 @@
           <span class="text-accent fw-bold text-uppercase tracking-wider">Aktivitas Visual</span>
           <h2 class="section-title mb-5">Galeri Foto Kegiatan</h2>
           <div class="row g-3 g-md-4 justify-content-center">
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/Q3ZccjYY/KBM-Madin.jpg" class="gallery-img zoom-target" alt="KBM Madin"><div class="gallery-title">KBM Madin</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/gbFGdhwr/KBM-SMP.jpg" class="gallery-img zoom-target" alt="KBM SMP"><div class="gallery-title">KBM SMP</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/60Y0gP5c/Upacara.jpg" class="gallery-img zoom-target" alt="Upacara"><div class="gallery-title">Upacara Bendera</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/cKqTkX5R/Pengajian-Kitab.jpg" class="gallery-img zoom-target" alt="Pengajian"><div class="gallery-title">Pengajian Kitab</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/NgY1kfW2/Diba.jpg" class="gallery-img zoom-target" alt="Diba'iyyah"><div class="gallery-title">Pembacaan Diba'iyyah</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/4Z6qRT4L/FA.jpg" class="gallery-img zoom-target" alt="Furudul Ainiyah"><div class="gallery-title">Pendalaman Furudul 'Ainiyah</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/whkc251Y/Ekstra-Pagar-Nusa.jpg" class="gallery-img zoom-target" alt="Pagar Nusa"><div class="gallery-title">Ekstrakurikuler Pagar Nusa</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
-              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/xS6rs6Tn/Futsal.jpg" class="gallery-img zoom-target" alt="Futsal"><div class="gallery-title">Ekstrakurikuler Futsal</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/Q3ZccjYY/KBM-Madin.jpg" class="gallery-img zoom-target" alt="KBM Madin"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/gbFGdhwr/KBM-SMP.jpg" class="gallery-img zoom-target" alt="KBM SMP"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/60Y0gP5c/Upacara.jpg" class="gallery-img zoom-target" alt="Upacara"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/cKqTkX5R/Pengajian-Kitab.jpg" class="gallery-img zoom-target" alt="Pengajian"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/NgY1kfW2/Diba.jpg" class="gallery-img zoom-target" alt="Diba'iyyah"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/4Z6qRT4L/FA.jpg" class="gallery-img zoom-target" alt="Furudul Ainiyah"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/whkc251Y/Ekstra-Pagar-Nusa.jpg" class="gallery-img zoom-target" alt="Pagar Nusa"></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/xS6rs6Tn/Futsal.jpg" class="gallery-img zoom-target" alt="Futsal"></div></div>
           </div>
       </div>
   </section>
@@ -377,7 +400,6 @@
        <h2 class="section-title mb-2">Berita Terkini</h2>
        <p class="text-muted small mb-5">Diambil langsung dari pusat informasi pesantren</p>
        
-       <!-- Grid Berita Dinamis -->
        <div class="row g-4 text-start" id="wadahBeritaUtama">
          <div class="col-12 text-center py-5">
             <div class="spinner-border text-primary" role="status"></div>
@@ -475,7 +497,6 @@
             <a href="https://www.facebook.com/ponpes.darul.fawaid.ilmiyah" class="social-link" target="_blank"><i class="bi bi-facebook"></i></a>
             <a href="https://www.instagram.com/pondok_giran" class="social-link" target="_blank"><i class="bi bi-instagram"></i></a>
             <a href="https://www.youtube.com/@pesantrendarulfawaidilmiyah" class="social-link" target="_blank"><i class="bi bi-youtube"></i></a>
-            <!-- Tombol TikTok Dikembalikan -->
             <a href="https://www.tiktok.com/@darul_fawaid_ilmiyah" class="social-link" target="_blank"><i class="bi bi-tiktok"></i></a>
           </div>
         </div>
@@ -496,7 +517,6 @@
             <a href="https://forms.gle/SK7MLpni2ge26UC99" target="_blank" class="btn btn-gold btn-lg py-3 rounded-3 shadow-sm d-flex justify-content-center align-items-center fw-bold transition-all hover-bounce">
               <i class="bi bi-file-earmark-text-fill me-2 fs-5"></i> DAFTAR SEKARANG
             </a>
-            <!-- Tombol Hubungi Via WA Dikembalikan -->
             <a href="https://wa.me/6282290505240" target="_blank" class="btn btn-whatsapp btn-lg py-3 rounded-3 shadow-sm d-flex justify-content-center align-items-center fw-bold transition-all hover-bounce">
               <i class="bi bi-whatsapp me-2 fs-5"></i> HUBUNGI VIA WHATSAPP
             </a>
@@ -528,36 +548,37 @@
     </div>
   </div>
 
-  <!-- LIGHTBOX MODAL -->
-  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-transparent border-0">
-        <div class="modal-body p-0 position-relative text-center">
-          <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal"></button>
-          <img src="" class="img-fluid rounded-4 shadow-lg w-100 max-h-85vh" id="lightboxImage">
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // ==========================================
-    // MASUKKAN URL DEPLOY ANDA DI SINI
     const GAS_URL = "https://script.google.com/macros/s/AKfycby7eQbGt0K-4y8NHvo2XgsF8Yn0mIYwi8gcgrBTPCrn-Xzdf072i2R--sAp3DiEqRbO/exec"; 
-    // ==========================================
     
     document.addEventListener('DOMContentLoaded', () => {
-      // Navbar scroll behavior
       const navbar = document.getElementById('mainNavbar');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
       });
 
-      // --- FETCH BERITA DARI SPREADSHEET ---
+      // Smooth scroll & tutup Sidebar HP saat ditekan
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            const offcanvasEl = document.getElementById('sidebarMenu');
+            const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasEl);
+            if (offcanvasInstance) offcanvasInstance.hide();
+            
+            const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // --- LOGIKA FETCH BERITA ---
       const wadahBerita = document.getElementById('wadahBeritaUtama');
-      
       async function muatBerita() {
         try {
           let res = await fetch(GAS_URL + "?action=getBerita");
@@ -565,11 +586,8 @@
           wadahBerita.innerHTML = '';
           
           if(result.result === 'success' && result.data.length > 0) {
-            // Ambil maksimal 4 berita terbaru (di-reverse agar yang di bawah sheet muncul duluan)
             let dataBerita = result.data.reverse().slice(0, 4);
-            
             dataBerita.forEach((b, index) => {
-              // Jika ini berita pertama, buat besar. Sisanya kecil.
               if(index === 0) {
                 wadahBerita.innerHTML += `
                   <div class="col-lg-6">
@@ -590,11 +608,11 @@
                 document.getElementById('beritaKecil').innerHTML += `
                   <div class="col-sm-6">
                       <a href="berita.html?id=${b.id}" class="text-decoration-none">
-                         <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
+                         <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white d-flex flex-column">
                             <img src="${b.cover}" class="news-img">
-                            <div class="card-body p-3">
-                               <h6 class="fw-bold text-dark mb-2">${b.title}</h6>
-                               <p class="text-muted small mb-0"><i class="bi bi-calendar3"></i> ${b.date}</p>
+                            <div class="card-body p-3 d-flex flex-column">
+                               <h6 class="fw-bold text-dark mb-2 flex-grow-1">${b.title}</h6>
+                               <p class="text-muted small mb-0 mt-2"><i class="bi bi-calendar3"></i> ${b.date}</p>
                             </div>
                          </div>
                       </a>
@@ -602,15 +620,49 @@
                 `;
               }
             });
-          } else {
-            wadahBerita.innerHTML = '<div class="col-12 text-center text-muted py-4">Belum ada berita dipublikasikan.</div>';
-          }
-        } catch(e) {
-          wadahBerita.innerHTML = '<div class="col-12 text-center text-danger py-4">Gagal memuat berita.</div>';
-        }
+          } else { wadahBerita.innerHTML = '<div class="col-12 text-center text-muted py-4">Belum ada berita dipublikasikan.</div>'; }
+        } catch(e) { wadahBerita.innerHTML = '<div class="col-12 text-center text-danger py-4">Gagal memuat berita.</div>'; }
       }
       muatBerita();
-      // Akhir dari fetch berita
+
+      // --- LOGIKA FETCH TESTIMONI (Yang sebelumnya hilang) ---
+      const wadahTesti = document.getElementById('wadahTestimoni');
+      const formTesti = document.getElementById('formTestimoni');
+
+      async function muatTestimoni() {
+        try {
+          let res = await fetch(GAS_URL); // Secara default tanpa "?action=getBerita", sistem merespon Testimoni
+          let result = await res.json();
+          wadahTesti.innerHTML = '';
+          if(result.result === 'success' && result.data.length > 0) {
+            result.data.forEach(i => {
+              wadahTesti.innerHTML += `<div class="testimoni-card"><div class="testimoni-nama"><i class="bi bi-person-circle text-primary me-2"></i>${i.nama}</div><div class="testimoni-waktu"><i class="bi bi-clock-history me-1"></i>${i.waktu}</div><p class="testimoni-isi">"${i.komentar}"</p></div>`;
+            });
+          } else { wadahTesti.innerHTML = '<p class="text-center text-muted my-5">Belum ada komentar.</p>'; }
+        } catch(e) { wadahTesti.innerHTML = '<p class="text-center text-danger my-5">Gagal memuat data testimoni.</p>'; }
+      }
+      if(wadahTesti) muatTestimoni();
+
+      if(formTesti) {
+        formTesti.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = document.getElementById('btnSubmitTestimoni');
+          const oriBtn = btn.innerHTML;
+          btn.innerHTML = 'Mengirim...'; btn.disabled = true;
+          
+          try {
+            await fetch(GAS_URL, {
+              method: 'POST',
+              body: JSON.stringify({ nama: document.getElementById('namaTestimoni').value, komentar: document.getElementById('isiTestimoni').value })
+            });
+            formTesti.reset();
+            wadahTesti.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary"></div></div>';
+            muatTestimoni();
+            btn.innerHTML = 'Berhasil Terkirim!';
+            setTimeout(() => { btn.innerHTML = oriBtn; btn.disabled = false; }, 3000);
+          } catch(err) { alert('Gagal mengirim'); btn.innerHTML = oriBtn; btn.disabled = false; }
+        });
+      }
     });
   </script>
 </body>
