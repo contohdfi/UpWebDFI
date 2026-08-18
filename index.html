@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pondok Pesantren Darul Fawaid Ilmiyah</title>
+  <title>Website PP DFI</title>
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -12,164 +12,227 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Profesional & Pertahankan Nuansa Awal */
     :root {
-      --primary-color: #0b5e2a; /* Hijau Pesantren */
-      --accent-gold: #cba052;
-      --light-bg: #f8f9fa;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      /* Padding bawah ekstra di HP agar konten tidak tertutup Bottom Bar */
-      padding-bottom: 0; 
-    }
-    @media (max-width: 991px) {
-      body { padding-bottom: 70px; }
-    }
-    h1, h2, h3, h4, h5, .brand-text {
-      font-family: 'Amiri', serif;
-    }
-    .text-primary { color: var(--primary-color) !important; }
-    .bg-primary { background-color: var(--primary-color) !important; }
-    .btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
-    .btn-primary:hover { background-color: #084720; border-color: #084720; }
-    .text-gold { color: var(--accent-gold); }
-    
-    /* Navbar Transisi Halus */
-    #mainNavbar {
-      transition: all 0.3s ease;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-    }
-    .navbar-logo { height: 50px; object-fit: contain; }
-    
-    /* Hero Section */
-    .hero-section {
-      background: linear-gradient(rgba(11, 94, 42, 0.85), rgba(11, 94, 42, 0.95)), url('https://i.ibb.co.com/zzqMMFq/DSC5150.jpg') center/cover;
-      min-height: 100vh;
-      padding-top: 80px;
-    }
-    .hero-logo { height: 120px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
-    
-    /* Utility Sections */
-    .section-padding { padding: 80px 0; }
-    .section-title { position: relative; display: inline-block; padding-bottom: 15px; font-weight: 700; }
-    .section-title::after {
-      content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-      width: 60px; height: 3px; background-color: var(--accent-gold); border-radius: 5px;
-    }
-    
-    /* Kartu (Card) & Efek Hover */
-    .card { transition: all 0.3s ease; }
-    .card:hover { transform: translateY(-7px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
-    .icon-circle { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #e8f5e9; margin-bottom: 1rem; }
-
-    /* Bottom Bar Khusus HP */
-    .mobile-bottom-bar {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: white; z-index: 1030;
-      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-      padding: 10px 15px;
-      border-top: 1px solid #eee;
+      --primary-green: #0A5C36;   
+      --primary-hover: #084c2c;
+      --accent-gold: #D4AF37;     
+      --accent-gold-hover: #c29d2f;
+      --text-dark: #1F2421;       
+      --bg-light: #F4F7F5;        
+      --light-green: #E1ECE5;
+      --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Testimoni Loader */
-    .skeleton-loader { height: 100px; background: #eee; border-radius: 10px; animation: pulse 1.5s infinite ease-in-out; }
-    @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; background-color: #ffffff; padding-bottom: 0; }
+    @media (max-width: 991px) { body { padding-bottom: 70px; } /* Jarak untuk bottom bar di HP */ }
+    .arabic-text { font-family: 'Amiri', serif; font-size: 1.8rem; letter-spacing: 0.5px; }
+    .section-padding { padding: 100px 0; }
+
+    .text-accent { color: var(--accent-gold); font-size: 1.25rem; display: block; margin-bottom: 5px; }
+    .section-title { font-weight: 700; color: var(--primary-green); display: inline-block; background-color: rgba(10, 92, 54, 0.08); padding: 10px 25px; border-radius: 12px; margin-top: 0; }
+    .max-width-600 { max-width: 600px; }
+
+    /* --- NAVBAR --- */
+    #mainNavbar { background-color: transparent; padding: 20px 0; transition: var(--transition-smooth); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    #mainNavbar.scrolled { background-color: rgba(10, 92, 54, 0.98); padding: 12px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-bottom: 1px solid transparent; }
+    .navbar-brand .brand-text { color: #ffffff; font-size: 1.15rem; letter-spacing: 1px; }
+    .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.8) !important; font-size: 0.85rem; letter-spacing: 0.5px; padding: 8px 16px !important; transition: var(--transition-smooth); }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--accent-gold) !important; }
+    .navbar-toggler { border-color: rgba(255, 255, 255, 0.5); }
+    .navbar-toggler:focus { box-shadow: none; }
+    .navbar-toggler-icon { filter: invert(1); }
+    .navbar-logo { width: 46px; height: 46px; object-fit: contain; background: white; padding: 4px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,.25), 0 0 8px rgba(255,255,255,.6); transition: .3s; }
+
+    /* --- HERO SECTION --- */
+    .hero-section { min-height: 100vh; background-image: url('https://i.ibb.co.com/zzqMMFq/DSC5150.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding-top: 120px;}
+    .hero-logo-wrapper { width: 180px; height: 180px; margin: 0 auto 38px; transform: translateY(-20px); background: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid rgba(255,255,255,.85); box-shadow: 0 8px 25px rgba(0,0,0,.18), 0 2px 8px rgba(255,255,255,.25); transition: all .35s ease; }
+    .hero-logo { width: 135px; height: auto; object-fit: contain; transform: translateY(-10px); }
+    .hero-logo-wrapper:hover { transform: translateY(-25px); box-shadow: 0 15px 35px rgba(0,0,0,.22), 0 5px 15px rgba(255,255,255,.30); }
+    .hero-section .overlay { background: linear-gradient(135deg, rgba(10, 92, 54, 0.9) 0%, rgba(5, 45, 26, 0.95) 100%); }
+
+    /* --- BUTTONS --- */
+    .btn-gold { background-color: var(--accent-gold); color: #000000; border: none; font-weight: 700; letter-spacing: 0.5px; transition: var(--transition-smooth); }
+    .btn-gold:hover { background-color: var(--accent-gold-hover); color: #000000; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3) !important; }
+    .btn-whatsapp { background-color: #25D366; color: #ffffff; border: none; transition: var(--transition-smooth); }
+    .btn-whatsapp:hover { background-color: #20ba5a; color: #ffffff; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25) !important; }
+
+    /* --- INTERFACES & UTILS --- */
+    .image-wrapper .floating-badge { position: absolute; bottom: -20px; right: -20px; background-color: #ffffff; padding: 20px 30px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-left: 5px solid var(--accent-gold); }
+    .leading-relaxed { line-height: 1.75; text-align: justify; }
+    .card-hover { transition: var(--transition-smooth); }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(10, 92, 54, 0.08) !important; }
+    .icon-circle { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .bg-white-translucent { background-color: rgba(255, 255, 255, 0.15); }
+    .bg-primary-light { background-color: rgba(10, 92, 54, 0.1); }
+    .bg-primary { background-color: var(--primary-green) !important; }
+    .text-primary { color: var(--primary-green) !important; }
+
+    /* --- PROGRAM PENDIDIKAN & ZOOM TARGET --- */
+    .program-img-wrapper { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; cursor: pointer; }
+    .program-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
+    .card-hover:hover .program-img-wrapper img { transform: scale(1.08); }
+
+    /* --- GALERI & OVERLAY ZOOM --- */
+    .gallery-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 18px; transition: .35s ease; background: #fff; }
+    .gallery-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,.18); }
+    .gallery-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: .45s ease; }
+    .gallery-card:hover .gallery-img { transform: scale(1.08); }
+    .zoom-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,92,54,.55); opacity: 0; transition: .35s; z-index: 3; display: flex; align-items: center; justify-content: center; }
+    .zoom-trigger:hover .zoom-overlay { opacity: 1; }
+    .gallery-title { position: absolute; left: 0; bottom: 0; width: 100%; padding: 14px 18px; color: #fff; font-size: 0.8rem; line-height: 1.3; font-weight: 600; background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.05)); z-index: 2; transition: .35s; }
+    .gallery-card:hover .gallery-title { transform: translateY(100%); opacity: 0; }
+
+    /* --- TIMELINE (PRESTASI) --- */
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0; }
+    .timeline::after { content: ''; position: absolute; width: 3px; background-color: var(--light-green); top: 0; bottom: 0; left: 40px; margin-left: -1.5px; }
+    .timeline-item .timeline-icon { width: 40px; height: 40px; left: 20px; top: 15px; z-index: 2; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 3px solid #ffffff; }
+
+    /* --- FOOTER & BERITA --- */
+    .news-img { aspect-ratio: 16/9; object-fit: cover; width: 100%; transition: .4s; }
+    .card-hover:hover .news-img { transform: scale(1.05); }
+    .border-white-translucent { border-color: rgba(255, 255, 255, 0.1) !important; }
+    #kontak .border-bottom p { text-align: justify; }
+    .social-link { width: 50px; height: 50px; font-size: 1.3rem; border-radius: 50%; background-color: rgba(255, 255, 255, 0.08); color: #ffffff; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition-smooth); }
+    .social-link:hover { background-color: var(--accent-gold); color: #000000; transform: translateY(-3px); }
+
+    /* --- TESTIMONI --- */
+    .testimoni-card { background-color: #ffffff; border-left: 5px solid var(--primary-green); padding: 20px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: left; transition: .3s; }
+    .testimoni-card:hover { transform: translateX(5px); box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+    .testimoni-nama { font-weight: 700; color: var(--text-dark); font-size: 1.05rem; margin-bottom: 2px; }
+    .testimoni-waktu { font-size: 0.75rem; color: #8a9499; margin-bottom: 12px; font-weight: 500; }
+    .testimoni-isi { font-size: 0.95rem; color: #4a5568; line-height: 1.6; margin-bottom: 0; text-align: justify; }
+    #wadahTestimoni::-webkit-scrollbar { width: 8px; }
+    #wadahTestimoni::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    #wadahTestimoni::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+    #wadahTestimoni::-webkit-scrollbar-thumb:hover { background: var(--primary-green); }
+
+    /* --- MOBILE BOTTOM BAR --- */
+    .mobile-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; z-index: 1030; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); padding: 10px 15px; border-top: 1px solid #eee; }
+
+    /* --- SIDEBAR OFFCANVAS --- */
+    .offcanvas-header { background-color: var(--primary-green); color: white; }
+    .offcanvas-body .nav-link { color: var(--text-dark) !important; padding: 12px 0 !important; border-bottom: 1px solid #eee; }
+
+    /* Animations & Responsive */
+    .load-anim { opacity: 0; transform: translateY(25px); animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    .scroll-reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 991.98px) {
+      #mainNavbar { background-color: var(--primary-green) !important; padding: 15px 0; }
+      .hero-section { background-attachment: scroll; }
+      .timeline::after { left: 20px; }
+      .timeline-item .timeline-icon { left: 0px; }
+      html, body { font-size: 17px; }
+      p, .text-muted, .leading-relaxed { font-size: 1.15rem !important; }
+      small, .small { font-size: 1.0rem !important; }
+      .section-title { font-size: 2.5rem !important; }
+    }
+    @media (max-width: 767.98px) {
+      .section-padding { padding: 65px 0; }
+      .container { padding-left: 12px; padding-right: 12px; }
+      .card-mobile-spacing { padding: 1.25rem !important; }
+      .timeline-content { margin-left: 2rem !important; }
+    }
+    @media (min-width: 992px) {
+      .navbar-nav .nav-link { padding: 8px 10px !important; font-size: 0.78rem; }
+      .navbar-brand .brand-text { font-size: 0.95rem; max-width: 250px; white-space: normal; line-height: 1.2; }
+      .hero-logo-wrapper { transform: translateY(0px); margin-bottom: 25px; }
+      .hero-logo-wrapper:hover { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNavbar">
+  <!-- NAVBAR DENGAN OFFCANVAS UNTUK HP -->
+  <nav class="navbar navbar-expand-lg fixed-top transition-all" id="mainNavbar">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="https://i.ibb.co.com/gFWV27xB/DFI-Resolusi.png" alt="Logo" class="navbar-logo me-3">
-        <span class="brand-text fw-bold text-dark d-none d-sm-block">PP Darul Fawaid Ilmiyah</span>
+        <span class="brand-text fw-bold text-white d-none d-sm-block">PP Darul Fawaid Ilmiyah</span>
       </a>
       
+      <!-- Tombol Navbar HP -->
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Menu Dekstop & Sidebar HP -->
       <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-        <div class="offcanvas-header border-bottom">
-          <h5 class="offcanvas-title fw-bold font-amiri text-primary" id="sidebarMenuLabel">Menu Navigasi</h5>
-          <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title fw-bold" id="sidebarMenuLabel">Menu Navigasi</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="navbar-nav ms-auto text-uppercase fw-semibold" style="font-size: 0.9rem;">
-            <li class="nav-item"><a class="nav-link text-dark" href="#tentang">Tentang</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#lembaga">Lembaga</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#program">Program</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#testimoni">Testimoni</a></li>
+          <ul class="navbar-nav ms-auto text-uppercase fw-semibold">
+            <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sejarah">Sejarah</a></li>
+            <li class="nav-item"><a class="nav-link" href="#visi-misi">Visi & Misi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#lembaga">Lembaga</a></li>
+            <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+            <li class="nav-item"><a class="nav-link" href="#prestasi">Prestasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimoni">Testimoni</a></li>
+            <li class="nav-item"><a class="nav-link" href="#lokasi">Kontak</a></li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
 
+  <!-- 1. HERO SECTION -->
   <section id="hero" class="hero-section d-flex align-items-center text-center text-white position-relative">
-    <div class="container position-relative z-1">
-      <img src="https://i.ibb.co.com/Wpzth3LY/DFI-Resolusi.png" class="hero-logo mb-4" alt="Logo">
-      <h1 class="display-4 fw-bold mb-1">Pondok Pesantren</h1>
-      <h1 class="display-3 fw-bold mb-4 text-gold">Darul Fawaid Ilmiyah</h1>
-      <p class="lead mb-5 mx-auto opacity-75" style="max-width: 700px;">
-        Membina Akhlaqul Karimah dan Menjadi Generasi Islamiyah yang Mampu Menggali Potensi & Meraih Prestasi!
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <div class="container position-relative z-1 load-anim">
+      <div class="hero-logo-wrapper">
+        <img src="https://i.ibb.co.com/Wpzth3LY/DFI-Resolusi.png" class="hero-logo" alt="Logo">
+      </div>
+      <h1 class="display-3 fw-bold mb-1">Pondok Pesantren</h1>
+      <h1 class="display-3 fw-bold mb-3">Darul Fawaid Ilmiyah</h1>
+      <p class="lead mb-5 text-light-green mx-auto max-width-600">
+        Bersama kami, Membina Akhlaqul Karimah dan Menjadi Generasi Islamiyah yang Mampu Menggali Potensi & Meraih Segudang Prestasi!
       </p>
-      <a href="#tentang" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3">Mulai Jelajahi <i class="bi bi-arrow-down ms-2"></i></a>
+      <a href="#tentang" class="btn btn-gold btn-lg rounded-pill px-4 py-3 shadow">Welcome to Our Islamic Boarding School <i class="bi bi-arrow-down-short ms-2"></i></a>
     </div>
   </section>
 
-  <section id="tentang" class="section-padding bg-light">
+  <!-- 2. TENTANG PESANTREN -->
+  <section id="tentang" class="section-padding scroll-reveal">
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-6">
-          <img src="https://i.ibb.co.com/zzqMMFq/DSC5150.jpg" class="img-fluid rounded-4 shadow w-100 object-fit-cover" style="height: 400px;" alt="Gedung DFI">
+          <div class="image-wrapper position-relative">
+            <img src="https://i.ibb.co.com/zzqMMFq/DSC5150.jpg" class="img-fluid rounded-4 shadow-lg w-100 object-fit-cover" style="height: 450px;">
+            <div class="floating-badge d-none d-sm-block">
+              <span class="h2 fw-bold text-primary">> 3 Tahun</span>
+              <p class="mb-0 text-muted small">Berdiri & Mengabdi Kepada</p>
+              <p class="mb-0 text-muted small">Agama, Ilmu, dan Masyarakat</p>
+            </div>
+          </div>
         </div>
         <div class="col-lg-6">
-          <span class="text-gold fw-bold text-uppercase">Mengenal Lebih Dekat</span>
-          <h2 class="mb-4 fw-bold font-amiri text-dark">Profil Singkat Pesantren</h2>
-          <p class="text-muted" style="line-height: 1.8;">
-            Pondok Pesantren Darul Fawaid Ilmiyah merupakan lembaga pendidikan Islam yang berorientasi pada masa depan dengan tetap berpegang teguh pada nilai-nilai keilmuan klasik. Pembelajaran Kitab Kuning dipadukan dengan sistem pendidikan modern.
+          <span class="text-accent fw-bold text-uppercase tracking-wider">Mengenal Lebih Dekat</span>
+          <h2 class="section-title mb-4">Profil Singkat Pesantren</h2>
+          <p class="text-muted leading-relaxed">
+            Pondok Pesantren Darul Fawaid Ilmiyah merupakan lembaga pendidikan Islam yang berorientasi pada masa depan dengan tetap berpegang teguh pada nilai-nilai keilmuan klasik. Melalui pembelajaran Kitab Kuning yang dipadukan dengan sistem pendidikan modern, santri dibekali wawasan keislaman yang kuat sekaligus kompetensi akademik yang relevan dengan perkembangan zaman.
           </p>
-          <div class="row g-3 mt-2">
-            <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-primary me-2"></i> Lingkungan Asri</div>
-            <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-primary me-2"></i> Asatidz Profesional</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="testimoni" class="section-padding">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-dark">Kesan & Pesan (Testimoni)</h2>
-        <p class="text-muted mt-3">Tinggalkan pesan Anda mengenai pesantren kami.</p>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-5 mb-4">
-          <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
-            <h5 class="fw-bold mb-4 font-amiri"><i class="bi bi-pencil-square text-primary me-2"></i>Tulis Testimoni</h5>
-            <form id="formTestimoni" onsubmit="kirimTestimoni(event)">
-              <div class="mb-3">
-                <input type="text" id="namaPengirim" class="form-control form-control-lg bg-light" placeholder="Nama Lengkap Anda" required>
-              </div>
-              <div class="mb-4">
-                <textarea id="isiKomentar" class="form-control form-control-lg bg-light" rows="4" placeholder="Tulis pengalaman atau pesan Anda..." required></textarea>
-              </div>
-              <button type="submit" id="btnSubmit" class="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow-sm">Kirim Komentar</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-light">
-            <h5 class="fw-bold mb-4 font-amiri"><i class="bi bi-chat-quote text-gold me-2"></i>Suara Masyarakat</h5>
-            <div id="containerTestimoni" style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
-              <div class="skeleton-loader mb-3"></div>
-              <div class="skeleton-loader mb-3"></div>
+          <p class="text-muted leading-relaxed mb-4">
+            Proses pembelajaran didampingi oleh para pembimbing yang kompeten, berpengalaman, dan profesional sehingga tercipta lingkungan belajar yang kondusif.
+          </p>
+          <div class="row g-3">
+            <div class="col-sm-6 d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Lingkungan Asri & Kondusif</span>
+            </div>
+            <div class="col-sm-6 d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Asatidz Profesional</span>
+            </div>
+            <div class="col-sm-6 d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Pembinaan Akhlaqul Karimah</span>
+            </div>
+            <div class="col-sm-6 d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-primary me-2 h5 mb-0"></i><span class="fw-medium text-dark">Sikap Disiplin</span>
             </div>
           </div>
         </div>
@@ -177,108 +240,409 @@
     </div>
   </section>
 
+  <!-- 3. SEJARAH SINGKAT -->
+  <section id="sejarah" class="section-padding bg-light scroll-reveal">
+    <div class="container text-center">
+      <span class="text-accent fw-bold text-uppercase tracking-wider">Perjalanan Kami</span>
+      <h2 class="section-title mb-5">Sejarah Berdirinya Pesantren</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-start">
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-top border-5 border-primary card-mobile-spacing">
+            <p class="text-muted leading-relaxed">
+              Pondok Pesantren Darul Fawaid Ilmiyah didirikan pada tahun 1444 Hijriyah oleh KH. Zaky Ayamany dan memperoleh pengesahan resmi dari negara pada 25 November 2022. Berawal dari sebuah masjid dan kamar sederhana (madura: cangkrok) yang berdiri di atas tanah wakaf, pesantren ini memulai langkahnya dengan tiga orang pengurus dan lima santri mukim sebagai generasi pertama.
+            </p>
+            <p class="text-muted leading-relaxed mb-4">
+              Meskipun usianya masih tergolong muda, Pondok Pesantren Darul Fawaid Ilmiyah terus menunjukkan perkembangan yang positif. Dengan semangat membangun pendidikan Islam yang berkualitas, pesantren senantiasa berupaya meningkatkan mutu pembelajaran.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. VISI & MISI -->
+  <section id="visi-misi" class="section-padding scroll-reveal">
+    <div class="container text-center">
+      <span class="text-accent fw-bold text-uppercase tracking-wider">Arah & Komitmen</span>
+      <h2 class="section-title mb-5">Visi dan Misi</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-5">
+          <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-primary text-white card-mobile-spacing">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <div class="icon-circle bg-white-translucent text-gold mb-4 mx-auto">
+                <i class="bi bi-book-half fs-3"></i>
+              </div>
+              <h3 class="fw-bold mb-3">Visi Pesantren</h3>
+              <p class="mb-0 leading-relaxed text-light-green">
+                "Menjadi pusat keunggulan pendidikan Islam integratif yang mencetak pemimpin umat bertaraf global, berakhlak mulia, serta berkomitmen tinggi pada kemaslahatan masyarakat."
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-sm p-4 rounded-4 h-100 text-start bg-white card-mobile-spacing">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-4">
+                <div class="icon-circle bg-primary-light text-primary me-3">
+                  <i class="bi bi-list-check fs-3"></i>
+                </div>
+                <h3 class="fw-bold text-dark mb-0">Misi Pesantren</h3>
+              </div>
+              <ul class="list-unstyled">
+                <li class="d-flex align-items-start mb-3">
+                  <span class="badge bg-gold text-dark me-3 mt-1 px-2.5 py-2.5 rounded-circle"><i class="bi bi-mortarboard-fill"></i></span>
+                  <div>
+                    <h5 class="fw-bold text-dark mb-1">Pendidikan Integratif</h5>
+                    <p class="text-muted mb-0">Menyelenggarakan pendidikan baca tulis Al-Qur'an dan penguasaan kitab kuning yang terintegrasi dengan IPTAQ dan IPTEK.</p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <span class="badge bg-gold text-dark me-3 mt-1 px-2.5 py-2.5 rounded-circle"><i class="bi bi-translate"></i></span>
+                  <div>
+                    <h5 class="fw-bold text-dark mb-1">Komunikasi Global</h5>
+                    <p class="text-muted mb-0">Membiasakan penggunaan bahasa Arab dan Inggris secara aktif sebagai pengantar harian komunikasi pesantren.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LEMBAGA PENDIDIKAN -->
+  <section id="lembaga" class="section-padding bg-light scroll-reveal">
+    <div class="container text-center">
+      <span class="text-accent fw-bold text-uppercase tracking-wider">Jenjang Formal & Diniyah</span>
+      <h2 class="section-title mb-5">Lembaga Pendidikan</h2>
+      <div class="row g-3 g-md-4 justify-content-center">
+        <!-- MDT -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-white text-center">
+            <div class="mb-4 mx-auto"><img src="https://i.ibb.co.com/BHBvLX08/Logo-MADIN-Takmiliyah.png" alt="Logo MDT" style="width: 80px; height: 80px; object-fit: contain;"></div>
+            <h4 class="fw-bold text-dark mb-3">Madrasah Diniyah Takmiliyah (MDT)</h4>
+            <p class="text-muted mb-0 small leading-relaxed">Fokus pada pendalaman keilmuan agama Islam (Tafaqquh Fiddin) dan bimbingan baca tulis Al-Qur'an.</p>
+          </div>
+        </div>
+        <!-- SMP -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-white text-center">
+            <div class="mb-4 mx-auto"><img src="https://i.ibb.co.com/TDzHjMjZ/Logo-SMP.png" alt="Logo SMP" style="width: 80px; height: 80px; object-fit: contain;"></div>
+            <h4 class="fw-bold text-dark mb-3">Sekolah Menengah Pertama (SMP)</h4>
+            <p class="text-muted mb-0 small leading-relaxed">Pendidikan dasar menengah yang mengintegrasikan kurikulum nasional dengan nilai kepesantrenan.</p>
+          </div>
+        </div>
+        <!-- SLTA -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-hover h-100 border-0 shadow-sm p-4 rounded-4 bg-white text-center">
+            <div class="mb-4 mx-auto"><img src="https://i.ibb.co.com/F9HrznH/Excel.png" alt="Logo SLTA" style="width: 80px; height: 80px; object-fit: contain;"></div>
+            <h4 class="fw-bold text-dark mb-3">Sekolah Lanjutan Tingkat Atas (SLTA)</h4>
+            <p class="text-muted mb-0 small leading-relaxed">Mempersiapkan kader lulusan yang kompeten untuk bersaing di perguruan tinggi maupun dunia kerja.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PROGRAM PENDIDIKAN -->
+  <section id="program" class="section-padding scroll-reveal">
+    <div class="container text-center">
+      <span class="text-accent fw-bold text-uppercase tracking-wider">Kurikulum & Program</span>
+      <h2 class="section-title mb-5">Program Unggulan</h2>
+      <div class="row g-3 g-md-4 justify-content-center">
+        <div class="col-md-4 col-sm-6">
+          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
+            <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/bwVCKdz/Yanbu-a.jpg" class="card-img-top zoom-target" alt="Baca Tulis Qur'an"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
+            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Metode Yanbu'a</h5><p class="text-muted small">Pembelajaran membaca dan menulis Al-Qur'an secara tartil.</p></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
+            <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/dsN1V1DN/Kitab.jpg" class="card-img-top zoom-target" alt="Kitab Kuning"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
+            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Kitab Kuning</h5><p class="text-muted small">Kajian kitab salaf meliputi ilmu fikih, hadits, aqidah, dan akhlak.</p></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card card-hover border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-trigger">
+            <div class="program-img-wrapper position-relative"><img src="https://i.ibb.co.com/Ng2X2bTw/Bahasa.jpg" class="card-img-top zoom-target" alt="Bahasa"><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-1"></i></div></div>
+            <div class="card-body p-4"><h5 class="fw-bold text-dark mb-3">Bahasa Asing</h5><p class="text-muted small">Pelatihan intensif bahasa Arab dan Inggris.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. GALERI -->
+  <section id="galeri" class="section-padding bg-light scroll-reveal">
+      <div class="container text-center">
+          <span class="text-accent fw-bold text-uppercase tracking-wider">Aktivitas Visual</span>
+          <h2 class="section-title mb-5">Galeri Foto</h2>
+          <div class="row g-3 g-md-4 justify-content-center">
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/Q3ZccjYY/KBM-Madin.jpg" class="gallery-img zoom-target" alt="KBM Madin"><div class="gallery-title">KBM Madin</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/gbFGdhwr/KBM-SMP.jpg" class="gallery-img zoom-target" alt="KBM SMP"><div class="gallery-title">KBM SMP</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/60Y0gP5c/Upacara.jpg" class="gallery-img zoom-target" alt="Upacara"><div class="gallery-title">Upacara Bendera</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+              <div class="col-6 col-md-4 col-lg-3"><div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm zoom-trigger"><img src="https://i.ibb.co.com/cKqTkX5R/Pengajian-Kitab.jpg" class="gallery-img zoom-target" alt="Pengajian"><div class="gallery-title">Pengajian Kitab</div><div class="zoom-overlay"><i class="bi bi-zoom-in text-white fs-2"></i></div></div></div>
+          </div>
+      </div>
+  </section>
+
+  <!-- 8. PRESTASI -->
+  <section id="prestasi" class="section-padding scroll-reveal">
+    <div class="container text-center">
+      <span class="text-accent fw-bold text-uppercase tracking-wider">Apresiasi & Karya</span>
+      <h2 class="section-title mb-5">Prestasi Santri</h2>
+      <div class="timeline">
+        <div class="timeline-item position-relative mb-5 text-start">
+          <div class="timeline-icon bg-primary text-white position-absolute rounded-circle shadow-sm"><i class="bi bi-award-fill"></i></div>
+          <div class="timeline-content bg-white p-4 rounded-4 shadow-sm border-start border-4 border-primary ms-sm-5 ms-4 card-mobile-spacing">
+            <span class="text-gold fw-bold mb-1 d-block">Ananda Ana Maulidiah</span>
+            <h5 class="fw-bold text-dark">Juara 1 Lomba Tartilul Qur'an</h5>
+            <p class="text-muted small mb-0">Festival Satu Muharram 1448 H, Masjid Baitur Rahim Randujalak.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. BERITA TERKINI -->
+  <section id="berita" class="section-padding bg-light scroll-reveal">
+    <div class="container text-center">
+       <span class="text-accent fw-bold text-uppercase tracking-wider">Informasi & Update</span>
+       <h2 class="section-title mb-2">Berita Terkini</h2>
+       <p class="text-muted small mb-5">Klik gambar atau judul berita untuk membaca berita selengkapnya</p>
+       
+       <div class="row g-4 text-start">
+         <!-- Gunakan format berita.html?id=1 karena ditaruh di GitHub Pages -->
+         <div class="col-lg-6">
+            <a href="berita.html?id=1" class="text-decoration-none">
+               <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
+                  <img src="https://i.ibb.co.com/KcH2vNGF/BESTIE-Fotbar.jpg" class="news-img">
+                  <div class="card-body p-4">
+                     <span class="badge bg-primary mb-2">Event Tahunan</span>
+                     <h4 class="fw-bold text-dark mt-2">Event Perdana BESTie 2026 Tingkat SD/MI Berlangsung Sukses</h4>
+                     <p class="text-muted small mt-3 mb-0">Baca selengkapnya <i class="bi bi-arrow-right"></i></p>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                  <a href="berita.html?id=2" class="text-decoration-none">
+                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
+                        <img src="https://i.ibb.co.com/vCcGgpgd/B-Cover-2.jpg" class="news-img">
+                        <div class="card-body p-3"><h6 class="fw-bold text-dark mb-2">SMP DFI Gelar Workshop Aplikasi Rapor</h6></div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-sm-6">
+                  <a href="berita.html?id=3" class="text-decoration-none">
+                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover bg-white">
+                        <img src="https://i.ibb.co.com/9kTcQCTH/Y-Wisudawan.webp" class="news-img">
+                        <div class="card-body p-3"><h6 class="fw-bold text-dark mb-2">Yudisium Kelulusan Angkatan Pertama SMP DFI</h6></div>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONI (BUKU TAMU INTERAKTIF) -->
+  <section id="testimoni" class="section-padding scroll-reveal">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="text-accent fw-bold text-uppercase tracking-wider">Suara Mereka</span>
+        <h2 class="section-title mb-2">Menurutmu, Bagaimana PP DFI itu?</h2>
+        <p class="text-muted small">Bagikan pengalaman dan kesan pesan Anda.</p>
+      </div>
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-5">
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-top border-5 border-primary h-100 card-mobile-spacing">
+            <h4 class="fw-bold text-dark mb-4"><i class="bi bi-pencil-square text-primary me-2"></i>Tulis Kesanmu</h4>
+            <form id="formTestimoni">
+              <div class="mb-3 text-start"><label class="form-label small fw-bold text-muted">Nama Lengkap</label><input type="text" class="form-control bg-light" id="namaTestimoni" placeholder="Masukkan nama..." required></div>
+              <div class="mb-4 text-start"><label class="form-label small fw-bold text-muted">Komentar & Kesan</label><textarea class="form-control bg-light" id="isiTestimoni" rows="4" placeholder="Tuliskan pengalaman..." required></textarea></div>
+              <button type="submit" class="btn btn-primary w-100 fw-bold py-3 rounded-pill" id="btnSubmitTestimoni">Kirim Komentar <i class="bi bi-send ms-2"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="bg-light p-4 rounded-4 shadow-sm h-100" style="max-height: 520px; overflow-y: auto;" id="wadahTestimoni">
+            <div class="text-center py-5" id="loadingTestimoni"><div class="spinner-border text-primary" role="status"></div><p class="mt-3 small text-muted">Memuat testimoni...</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. LOKASI PESANTREN -->
+  <section id="lokasi" class="section-padding bg-light scroll-reveal">
+    <div class="container text-center">
+      <span class="text-accent fw-bold text-uppercase tracking-wider">Kunjungi Kami</span>
+      <h2 class="section-title mb-5">Lokasi Pesantren</h2>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 text-start">
+          <div class="bg-white p-4 p-md-4 rounded-4 shadow-sm h-100 card-mobile-spacing">
+            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Yayasan Darul Ghiran Alyamany</h4>
+            <p class="text-muted leading-relaxed mb-4">Dusun Giran RT 001 RW 002 Desan Randujalak Kecamatan Besuk Kabupaten Probolinggo Jawa Timur || Kode Pos: 67283</p>
+            <hr class="text-muted opacity-25 mb-4">
+            <div class="d-flex align-items-start mb-3"><i class="bi bi-clock-fill text-accent me-3 mt-1"></i><div><h6 class="fw-bold text-dark mb-1">Jam Operasional Kantor</h6><p class="text-muted small mb-0">Senin - Kamis: 08.00 - 13.00 WIB</p></div></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="map-container rounded-4 shadow-sm overflow-hidden bg-white">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1587.2315137685423!2d113.47668002037031!3d-7.773006802391535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd701bb385cc319%3A0x28b2a3c685f6c961!2sYayasan%20Darul%20Ghiran%20Alyamany!5e0!3m2!1sid!2sid!4v1784210131507!5m2!1sid!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FOOTER & BOTTOM BAR HP -->
+  <footer id="kontak" class="footer bg-primary text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4 g-md-5 pb-5 border-bottom border-white-translucent">
+        <div class="col-lg-4 col-md-6">
+          <h4 class="fw-bold mb-3 text-white"><i class="bi bi-moon-stars-fill text-gold me-2"></i> Let's Join Us!</h4>
+          <p class="text-light-green small leading-relaxed mb-4">Ikuti perjalanan dan berbagai aktivitas kami! Dapatkan informasi terbaru seputar kegiatan pesantren.</p>
+          <div class="social-icons d-flex gap-3">
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="fw-bold mb-3 text-white">Hubungi Kami</h4>
+          <ul class="list-unstyled text-light-green small">
+            <li class="mb-3"><i class="bi bi-telephone-fill me-3 text-gold"></i> 0822 9050 5240 (Humas)</li>
+            <li class="mb-3"><i class="bi bi-envelope-open-fill me-3 text-gold"></i> email@dfi.com</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <h4 class="fw-bold mb-3 text-white">Pendaftaran</h4>
+          <div class="d-grid gap-3">
+            <a href="#" target="_blank" class="btn btn-gold py-3 rounded-3 fw-bold"><i class="bi bi-file-text-fill me-2"></i> DAFTAR SEKARANG</a>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-4 text-center"><div class="col-12"><p class="text-light-green mb-0 small">&copy; 2026 Pondok Pesantren Darul Fawaid Ilmiyah.</p></div></div>
+    </div>
+  </footer>
+
+  <!-- BOTTOM BAR (TOMBOL DAFTAR & NARAHUBUNG UNTUK HP) -->
   <div class="mobile-bottom-bar d-block d-lg-none">
     <div class="row g-2">
-      <div class="col-6">
-        <a href="LINK_PENDAFTARAN" class="btn btn-primary w-100 rounded-pill fw-bold shadow-sm py-2">
-          <i class="bi bi-person-plus-fill me-1"></i> Daftar
-        </a>
-      </div>
-      <div class="col-6">
-        <a href="https://wa.me/NOMOR_WA" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm py-2">
-          <i class="bi bi-whatsapp me-1"></i> Hubungi
-        </a>
+      <div class="col-6"><a href="LINK_PENDAFTARAN_DISINI" class="btn btn-primary w-100 rounded-pill fw-bold shadow-sm py-2"><i class="bi bi-person-plus-fill me-1"></i> Daftar</a></div>
+      <div class="col-6"><a href="https://wa.me/6282290505240" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm py-2"><i class="bi bi-whatsapp me-1"></i> Hubungi</a></div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body p-0 position-relative text-center">
+          <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal"></button>
+          <img src="" class="img-fluid rounded-4 shadow-lg w-100 max-h-85vh" id="lightboxImage">
+        </div>
       </div>
     </div>
   </div>
 
-  <footer class="bg-dark text-white text-center py-4">
-    <p class="mb-0 opacity-75">&copy; 2024 Pondok Pesantren Darul Fawaid Ilmiyah. All Rights Reserved.</p>
-  </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
+
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    // MASUKKAN URL WEB APP ANDA DI SINI
-    const GAS_URL = "https://script.google.com/macros/s/AKfycby7eQbGt0K-4y8NHvo2XgsF8Yn0mIYwi8gcgrBTPCrn-Xzdf072i2R--sAp3DiEqRbO/exec";
+    document.addEventListener('DOMContentLoaded', () => {
+      // Navbar scroll
+      const navbar = document.getElementById('mainNavbar');
+      const handleScroll = () => { if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); };
+      window.addEventListener('scroll', handleScroll); handleScroll();
 
-    // Fungsi mengambil testimoni saat web dibuka
-    async function muatTestimoni() {
-      const container = document.getElementById('containerTestimoni');
-      try {
-        let response = await fetch(GAS_URL);
-        let result = await response.json();
-        
-        container.innerHTML = ''; // Kosongkan loading
-
-        if(result.result === 'success' && result.data.length > 0) {
-          result.data.forEach(item => {
-            container.innerHTML += `
-              <div class="card border-0 shadow-sm mb-3 rounded-3">
-                <div class="card-body p-3">
-                  <h6 class="fw-bold mb-1 text-primary">${escapeHTML(item.nama)}</h6>
-                  <p class="small text-muted mb-2"><i class="bi bi-clock"></i> ${item.waktu}</p>
-                  <p class="mb-0 fst-italic text-dark">"${escapeHTML(item.komentar)}"</p>
-                </div>
-              </div>
-            `;
-          });
-        } else {
-          container.innerHTML = '<p class="text-center text-muted my-5">Belum ada testimoni. Jadilah yang pertama!</p>';
-        }
-      } catch (error) {
-        container.innerHTML = '<p class="text-center text-danger my-5">Gagal memuat testimoni. Silakan segarkan halaman.</p>';
-      }
-    }
-
-    // Fungsi kirim testimoni
-    async function kirimTestimoni(e) {
-      e.preventDefault();
-      const btn = document.getElementById('btnSubmit');
-      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Mengirim...';
-      btn.disabled = true;
-
-      const nama = document.getElementById('namaPengirim').value;
-      const komentar = document.getElementById('isiKomentar').value;
-
-      try {
-        let response = await fetch(GAS_URL, {
-          method: 'POST',
-          body: JSON.stringify({ nama: nama, komentar: komentar })
+      // Smooth scroll & Tutup Offcanvas saat menu HP diklik
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            // Menutup Sidebar Offcanvas (Mobile)
+            const offcanvasEl = document.getElementById('sidebarMenu');
+            const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasEl);
+            if (offcanvasInstance) offcanvasInstance.hide();
+            
+            const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
         });
-        
-        let result = await response.json();
-        if(result.result === 'success') {
-          alert('Terima kasih! Testimoni berhasil ditambahkan.');
-          document.getElementById('formTestimoni').reset();
-          
-          // Tampilkan kerangka loading dan muat ulang data
-          document.getElementById('containerTestimoni').innerHTML = '<div class="skeleton-loader mb-3"></div>';
-          muatTestimoni(); 
-        }
-      } catch (error) {
-        alert('Terjadi kesalahan jaringan, silakan coba lagi nanti.');
-      } finally {
-        btn.innerHTML = 'Kirim Komentar';
-        btn.disabled = false;
+      });
+
+      // Scroll reveal
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+      }, { rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+      // Lightbox
+      document.querySelectorAll('.zoom-trigger').forEach(t => {
+        t.addEventListener('click', e => {
+          e.preventDefault();
+          const img = t.querySelector('.zoom-target');
+          if (img) { document.getElementById('lightboxImage').src = img.src; new bootstrap.Modal(document.getElementById('lightboxModal')).show(); }
+        });
+      });
+
+      // --- LOGIKA TESTIMONI API ---
+      // ==========================================
+      // GANTI URL DI BAWAH DENGAN URL DEPLOY ANDA:
+      const GAS_URL = "https://script.google.com/macros/s/AKfycby7eQbGt0K-4y8NHvo2XgsF8Yn0mIYwi8gcgrBTPCrn-Xzdf072i2R--sAp3DiEqRbO/exec"; 
+      // ==========================================
+      
+      const wadah = document.getElementById('wadahTestimoni');
+      const form = document.getElementById('formTestimoni');
+
+      async function ambilData() {
+        try {
+          let res = await fetch(GAS_URL);
+          let result = await res.json();
+          wadah.innerHTML = '';
+          if(result.result === 'success' && result.data.length > 0) {
+            result.data.forEach(i => {
+              wadah.innerHTML += `<div class="testimoni-card"><div class="testimoni-nama"><i class="bi bi-person-circle text-primary me-2"></i>${i.nama}</div><div class="testimoni-waktu"><i class="bi bi-clock-history me-1"></i>${i.waktu}</div><p class="testimoni-isi">"${i.komentar}"</p></div>`;
+            });
+          } else { wadah.innerHTML = '<p class="text-center text-muted my-5">Belum ada komentar.</p>'; }
+        } catch(e) { wadah.innerHTML = '<p class="text-center text-danger my-5">Gagal memuat data.</p>'; }
       }
-    }
 
-    // Fungsi untuk mencegah injeksi HTML
-    function escapeHTML(str) {
-      return str.replace(/[&<>'"]/g, 
-        tag => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            "'": '&#39;',
-            '"': '&quot;'
-        }[tag] || tag)
-      );
-    }
+      if(wadah) ambilData();
 
-    // Jalankan pengambilan data saat halaman termuat
-    document.addEventListener("DOMContentLoaded", muatTestimoni);
+      if(form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = document.getElementById('btnSubmitTestimoni');
+          const oriBtn = btn.innerHTML;
+          btn.innerHTML = 'Mengirim...'; btn.disabled = true;
+          
+          try {
+            await fetch(GAS_URL, {
+              method: 'POST',
+              body: JSON.stringify({ nama: document.getElementById('namaTestimoni').value, komentar: document.getElementById('isiTestimoni').value })
+            });
+            form.reset();
+            wadah.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary"></div></div>';
+            ambilData();
+            btn.innerHTML = 'Berhasil Terkirim!';
+            setTimeout(() => { btn.innerHTML = oriBtn; btn.disabled = false; }, 3000);
+          } catch(err) {
+            alert('Gagal mengirim'); btn.innerHTML = oriBtn; btn.disabled = false;
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
