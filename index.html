@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pondok Pesantren Darul Fawaid Ilmiyah</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Profesional & Pertahankan Nuansa Awal */
+    :root {
+      --primary-color: #0b5e2a; /* Hijau Pesantren */
+      --accent-gold: #cba052;
+      --light-bg: #f8f9fa;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Padding bawah ekstra di HP agar konten tidak tertutup Bottom Bar */
+      padding-bottom: 0; 
+    }
+    @media (max-width: 991px) {
+      body { padding-bottom: 70px; }
+    }
+    h1, h2, h3, h4, h5, .brand-text {
+      font-family: 'Amiri', serif;
+    }
+    .text-primary { color: var(--primary-color) !important; }
+    .bg-primary { background-color: var(--primary-color) !important; }
+    .btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+    .btn-primary:hover { background-color: #084720; border-color: #084720; }
+    .text-gold { color: var(--accent-gold); }
+    
+    /* Navbar Transisi Halus */
+    #mainNavbar {
+      transition: all 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    .navbar-logo { height: 50px; object-fit: contain; }
+    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(11, 94, 42, 0.85), rgba(11, 94, 42, 0.95)), url('https://i.ibb.co.com/zzqMMFq/DSC5150.jpg') center/cover;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+    .hero-logo { height: 120px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+    
+    /* Utility Sections */
+    .section-padding { padding: 80px 0; }
+    .section-title { position: relative; display: inline-block; padding-bottom: 15px; font-weight: 700; }
+    .section-title::after {
+      content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+      width: 60px; height: 3px; background-color: var(--accent-gold); border-radius: 5px;
+    }
+    
+    /* Kartu (Card) & Efek Hover */
+    .card { transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-7px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+    .icon-circle { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #e8f5e9; margin-bottom: 1rem; }
+
+    /* Bottom Bar Khusus HP */
+    .mobile-bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: white; z-index: 1030;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      padding: 10px 15px;
+      border-top: 1px solid #eee;
+    }
+
+    /* Testimoni Loader */
+    .skeleton-loader { height: 100px; background: #eee; border-radius: 10px; animation: pulse 1.5s infinite ease-in-out; }
+    @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="https://i.ibb.co.com/gFWV27xB/DFI-Resolusi.png" alt="Logo" class="navbar-logo me-3">
+        <span class="brand-text fw-bold text-dark d-none d-sm-block">PP Darul Fawaid Ilmiyah</span>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header border-bottom">
+          <h5 class="offcanvas-title fw-bold font-amiri text-primary" id="sidebarMenuLabel">Menu Navigasi</h5>
+          <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto text-uppercase fw-semibold" style="font-size: 0.9rem;">
+            <li class="nav-item"><a class="nav-link text-dark" href="#tentang">Tentang</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#lembaga">Lembaga</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#program">Program</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#testimoni">Testimoni</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero-section d-flex align-items-center text-center text-white position-relative">
+    <div class="container position-relative z-1">
+      <img src="https://i.ibb.co.com/Wpzth3LY/DFI-Resolusi.png" class="hero-logo mb-4" alt="Logo">
+      <h1 class="display-4 fw-bold mb-1">Pondok Pesantren</h1>
+      <h1 class="display-3 fw-bold mb-4 text-gold">Darul Fawaid Ilmiyah</h1>
+      <p class="lead mb-5 mx-auto opacity-75" style="max-width: 700px;">
+        Membina Akhlaqul Karimah dan Menjadi Generasi Islamiyah yang Mampu Menggali Potensi & Meraih Prestasi!
+      </p>
+      <a href="#tentang" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3">Mulai Jelajahi <i class="bi bi-arrow-down ms-2"></i></a>
+    </div>
+  </section>
+
+  <section id="tentang" class="section-padding bg-light">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <img src="https://i.ibb.co.com/zzqMMFq/DSC5150.jpg" class="img-fluid rounded-4 shadow w-100 object-fit-cover" style="height: 400px;" alt="Gedung DFI">
+        </div>
+        <div class="col-lg-6">
+          <span class="text-gold fw-bold text-uppercase">Mengenal Lebih Dekat</span>
+          <h2 class="mb-4 fw-bold font-amiri text-dark">Profil Singkat Pesantren</h2>
+          <p class="text-muted" style="line-height: 1.8;">
+            Pondok Pesantren Darul Fawaid Ilmiyah merupakan lembaga pendidikan Islam yang berorientasi pada masa depan dengan tetap berpegang teguh pada nilai-nilai keilmuan klasik. Pembelajaran Kitab Kuning dipadukan dengan sistem pendidikan modern.
+          </p>
+          <div class="row g-3 mt-2">
+            <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-primary me-2"></i> Lingkungan Asri</div>
+            <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-primary me-2"></i> Asatidz Profesional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimoni" class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-dark">Kesan & Pesan (Testimoni)</h2>
+        <p class="text-muted mt-3">Tinggalkan pesan Anda mengenai pesantren kami.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-5 mb-4">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+            <h5 class="fw-bold mb-4 font-amiri"><i class="bi bi-pencil-square text-primary me-2"></i>Tulis Testimoni</h5>
+            <form id="formTestimoni" onsubmit="kirimTestimoni(event)">
+              <div class="mb-3">
+                <input type="text" id="namaPengirim" class="form-control form-control-lg bg-light" placeholder="Nama Lengkap Anda" required>
+              </div>
+              <div class="mb-4">
+                <textarea id="isiKomentar" class="form-control form-control-lg bg-light" rows="4" placeholder="Tulis pengalaman atau pesan Anda..." required></textarea>
+              </div>
+              <button type="submit" id="btnSubmit" class="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow-sm">Kirim Komentar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-light">
+            <h5 class="fw-bold mb-4 font-amiri"><i class="bi bi-chat-quote text-gold me-2"></i>Suara Masyarakat</h5>
+            <div id="containerTestimoni" style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
+              <div class="skeleton-loader mb-3"></div>
+              <div class="skeleton-loader mb-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mobile-bottom-bar d-block d-lg-none">
+    <div class="row g-2">
+      <div class="col-6">
+        <a href="LINK_PENDAFTARAN" class="btn btn-primary w-100 rounded-pill fw-bold shadow-sm py-2">
+          <i class="bi bi-person-plus-fill me-1"></i> Daftar
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="https://wa.me/NOMOR_WA" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm py-2">
+          <i class="bi bi-whatsapp me-1"></i> Hubungi
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-4">
+    <p class="mb-0 opacity-75">&copy; 2024 Pondok Pesantren Darul Fawaid Ilmiyah. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // MASUKKAN URL WEB APP ANDA DI SINI
+    const GAS_URL = "URL_WEB_APP_ANDA_DISINI";
+
+    // Fungsi mengambil testimoni saat web dibuka
+    async function muatTestimoni() {
+      const container = document.getElementById('containerTestimoni');
+      try {
+        let response = await fetch(GAS_URL);
+        let result = await response.json();
+        
+        container.innerHTML = ''; // Kosongkan loading
+
+        if(result.result === 'success' && result.data.length > 0) {
+          result.data.forEach(item => {
+            container.innerHTML += `
+              <div class="card border-0 shadow-sm mb-3 rounded-3">
+                <div class="card-body p-3">
+                  <h6 class="fw-bold mb-1 text-primary">${escapeHTML(item.nama)}</h6>
+                  <p class="small text-muted mb-2"><i class="bi bi-clock"></i> ${item.waktu}</p>
+                  <p class="mb-0 fst-italic text-dark">"${escapeHTML(item.komentar)}"</p>
+                </div>
+              </div>
+            `;
+          });
+        } else {
+          container.innerHTML = '<p class="text-center text-muted my-5">Belum ada testimoni. Jadilah yang pertama!</p>';
+        }
+      } catch (error) {
+        container.innerHTML = '<p class="text-center text-danger my-5">Gagal memuat testimoni. Silakan segarkan halaman.</p>';
+      }
+    }
+
+    // Fungsi kirim testimoni
+    async function kirimTestimoni(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Mengirim...';
+      btn.disabled = true;
+
+      const nama = document.getElementById('namaPengirim').value;
+      const komentar = document.getElementById('isiKomentar').value;
+
+      try {
+        let response = await fetch(GAS_URL, {
+          method: 'POST',
+          body: JSON.stringify({ nama: nama, komentar: komentar })
+        });
+        
+        let result = await response.json();
+        if(result.result === 'success') {
+          alert('Terima kasih! Testimoni berhasil ditambahkan.');
+          document.getElementById('formTestimoni').reset();
+          
+          // Tampilkan kerangka loading dan muat ulang data
+          document.getElementById('containerTestimoni').innerHTML = '<div class="skeleton-loader mb-3"></div>';
+          muatTestimoni(); 
+        }
+      } catch (error) {
+        alert('Terjadi kesalahan jaringan, silakan coba lagi nanti.');
+      } finally {
+        btn.innerHTML = 'Kirim Komentar';
+        btn.disabled = false;
+      }
+    }
+
+    // Fungsi untuk mencegah injeksi HTML
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[tag] || tag)
+      );
+    }
+
+    // Jalankan pengambilan data saat halaman termuat
+    document.addEventListener("DOMContentLoaded", muatTestimoni);
+  </script>
+</body>
+</html>
